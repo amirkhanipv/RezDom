@@ -35,7 +35,7 @@ $_email=$user->Email;
         <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="unicons.iconscout.com/release/v3.0.6/css/line.css">
         <!-- Main Css -->
-        <link href="css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+        <link href="css/style-dark.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
         <link href="css/colors/purple.css" rel="stylesheet" id="color-opt">
 
     </head>
@@ -227,7 +227,7 @@ $_email=$user->Email;
                                                 <label class="form-label">نام </label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="first" type="text" class="form-control ps-5" placeholder="نام :">
+                                                    <input name="name" id="first" type="text" class="form-control ps-5" placeholder="نام :"  value="<?php echo$_FirstName?>">
                                                 </div>
                                             </div>
                                         </div><!--end col-->
@@ -236,7 +236,7 @@ $_email=$user->Email;
                                                 <label class="form-label">نام خانوادگی </label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user-check" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="last" type="text" class="form-control ps-5" placeholder="نام خانوادگی :">
+                                                    <input name="name" id="last" type="text" class="form-control ps-5" placeholder="نام خانوادگی :"  value="<?php echo$_LastName?>">
                                                 </div>
                                             </div>
                                         </div><!--end col-->
@@ -245,7 +245,7 @@ $_email=$user->Email;
                                                 <label class="form-label">ایمیل شما در رزومه</label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="mail" class="fea icon-sm icons"></i>
-                                                    <input name="email" id="email" type="email" class="form-control ps-5" placeholder=" ایمیل شما در رزومه :">
+                                                    <input name="email" id="email" type="email" class="form-control ps-5" placeholder=" ایمیل شما در رزومه :"  value="<?php echo$_email?>">
                                                 </div>
                                             </div> 
                                         </div><!--end col-->
@@ -281,7 +281,7 @@ $_email=$user->Email;
                                             <div class="form-check form-check-inline">
                                             <div class="mb-0">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" checked value="" id="flexCheckDefault1">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
                                                     <label class="form-check-label" for="flexCheckDefault1">انگلیسی </label>
                                                 </div>
                                             </div>
@@ -291,14 +291,6 @@ $_email=$user->Email;
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
                                                     <label class="form-check-label" for="flexCheckDefault2">فرانسوی </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <div class="mb-0">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                                                    <label class="form-check-label" for="flexCheckDefault3">چینی </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -325,21 +317,21 @@ $_email=$user->Email;
                                             <div class="form-icon position-relative">
                                             
                                             <div class="form-check form-check-inline" >
-                                            <div class="mb-0">
+                                        
                                             <div class="form-check mb-0">
-                                                <input class="form-check-input" checked type="radio" checked name="flexRadioDefault" id="flexRadioDefault1">
+                                                <input class="form-check-input" checked  type="radio"   name="flexRadioDefault1" id="flexRadioDefault1">
                                                 <label class="form-check-label" for="flexRadioDefault1">آقا</label>
                                             </div>
-                                            </div>
+                                           
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <div class="mb-0">
+                                           
                                             <div class="form-check mb-0">
-                                                <input class="form-check-input" checked type="radio" checked name="flexRadioDefault" id="flexRadioDefault1">
-                                                <label class="form-check-label" for="flexRadioDefault1">خانوم</label>
+                                                <input class="form-check-input"   type="radio"  name="flexRadioDefault1" id="flexRadioDefault2">
+                                                <label class="form-check-label" for="flexRadioDefault2">خانوم</label>
                                             </div>
-                                            </div>
+                                            
                                         </div>
 
                                             
