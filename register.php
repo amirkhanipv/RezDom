@@ -57,6 +57,16 @@
 
                                         <div class="col-md-12">
                                             <div class="mb-3">
+                                                <label class="form-label">نام کاربری<span class="text-danger">*</span></label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="user" class="fea icon-sm icons"></i>
+                                                    <input type="text" class="form-control ps-5" placeholder="نام کاربری" name="username" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
                                                 <label class="form-label">ایمیل شما <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="mail" class="fea icon-sm icons"></i>
@@ -64,7 +74,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">رمز عبور  <span class="text-danger">*</span></label>
