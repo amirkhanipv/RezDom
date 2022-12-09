@@ -121,7 +121,9 @@ if(isset($_POST['submit'])){
                                         </div>
                                         <div class="col-md-12">
                                             <div class="d-grid">
-                                                <button class="btn btn-primary">ثبت نام </button>
+
+                                              <input name="submit" type="submit" class="btn btn-primary" value="ثبت نام">
+    
                                             </div>
                                         </div><!--end col-->
                                     </div><!--end row-->
