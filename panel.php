@@ -35,7 +35,7 @@ $_email=$user->Email;
         <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="unicons.iconscout.com/release/v3.0.6/css/line.css">
         <!-- Main Css -->
-        <link href="css/style-dark.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+        <link href="css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
         <link href="css/colors/purple.css" rel="stylesheet" id="color-opt">
 
     </head>
@@ -207,15 +207,169 @@ $_email=$user->Email;
                             </div><!--end teb pane-->
                             
                             <div class="tab-pane fade" id="time-line" role="tabpanel" aria-labelledby="timeline">
-                                <img src="images/task/widgets2.png" class="img-fluid mx-auto rounded-md shadow-lg d-block" alt="">
-                            </div><!--end teb pane-->
+              
+                            <div class="card-body">
+                                <h5 class="text-md-start text-center">جزئیات شخصی :</h5>
 
-                            <div class="tab-pane fade" id="payment-management" role="tabpanel" aria-labelledby="paymentmanagement">
-                                <img src="images/task/task.png" class="img-fluid mx-auto rounded-md shadow-lg d-block" alt="">
-                            </div><!--end teb pane-->
+                                <div class="mt-3 text-md-start text-center d-sm-flex">
+                                    <img src="images/client/05.jpg" class="avatar float-md-left avatar-medium rounded-circle shadow me-md-4" alt="">
+                                    
+                                    <div class="mt-md-4 mt-3 mt-sm-0" style="margin-right:5px;">
+                                        <a href="javascript:void(0)" class="btn btn-primary mt-2">تغییر تصویر</a>
+                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-2 ms-2">حذف </a>
+                                    </div>
+                                </div>
 
-                            <div class="tab-pane fade" id="file-integrate" role="tabpanel" aria-labelledby="fileintegrate">
-                                <img src="images/task/file.png" class="img-fluid mx-auto rounded-md shadow-lg d-block" alt="">
+                                <form>
+                                    <div class="row mt-4">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">نام </label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="user" class="fea icon-sm icons"></i>
+                                                    <input name="name" id="first" type="text" class="form-control ps-5" placeholder="نام :">
+                                                </div>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">نام خانوادگی </label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="user-check" class="fea icon-sm icons"></i>
+                                                    <input name="name" id="last" type="text" class="form-control ps-5" placeholder="نام خانوادگی :">
+                                                </div>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">ایمیل شما در رزومه</label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="mail" class="fea icon-sm icons"></i>
+                                                    <input name="email" id="email" type="email" class="form-control ps-5" placeholder=" ایمیل شما در رزومه :">
+                                                </div>
+                                            </div> 
+                                        </div><!--end col-->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">تخصص اصلی </label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="code" class="fea icon-sm icons"></i>
+                                                    <input name="name" id="job" type="text" class="form-control ps-5" placeholder="تخصص اصلی :">
+                                                </div>
+                                            </div> 
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                            <label class="form-label">سن</label>
+                                            <div class="form-icon position-relative">
+                                            <select class="form-select form-control" aria-label="Default select example">
+                                                <option value="0" disabled selected>سن : </option>
+                                                <option value="1">بین 13 تا 18 سال</option>
+                                                <option value="2">بین 18 تا 25 سال</option>
+                                                <option value="2">بین 25 تا 30 سال</option>
+                                                <option value="2">بالای 30 سال</option>
+                                            </select>
+                                            </div>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                            <label class="form-label">زبان های خارجی</label>
+                                            <div class="form-icon position-relative">
+                                            <div class="form-check form-check-inline">
+                                            <div class="mb-0">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" checked value="" id="flexCheckDefault1">
+                                                    <label class="form-check-label" for="flexCheckDefault1">انگلیسی </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <div class="mb-0">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                                    <label class="form-check-label" for="flexCheckDefault2">فرانسوی </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <div class="mb-0">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                                    <label class="form-check-label" for="flexCheckDefault3">چینی </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            </div>
+                                            </div> 
+                                        </div>
+                                            <div class="col-md-6">
+                                            <div class="mb-3">
+                                            <label class="form-label">سابقه کاری</label>
+                                            <div class="form-icon position-relative">
+                                            <select class="form-select form-control" aria-label="Default select example">
+                                                <option value="0" disabled selected>سابقه کاری: </option>
+                                                <option value="1">یک سال </option>
+                                                <option value="2">دو سال</option>
+                                                <option value="3">بیشتر از دو سال</option>
+                                            </select>
+                                            </div>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                
+                                            <label class="form-label">جنسیت</label>
+                                            <div class="form-icon position-relative">
+                                            
+                                            <div class="form-check form-check-inline" >
+                                            <div class="mb-0">
+                                            <div class="form-check mb-0">
+                                                <input class="form-check-input" checked type="radio" checked name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label" for="flexRadioDefault1">آقا</label>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <div class="mb-0">
+                                            <div class="form-check mb-0">
+                                                <input class="form-check-input" checked type="radio" checked name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label" for="flexRadioDefault1">خانوم</label>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                            
+                                            </div>
+                                            </div> 
+                                            
+                                        </div>
+
+                                        </div><!--end col-->
+                                        <div class="col-lg-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">توانایی ها</label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="message-circle" class="fea icon-sm icons"></i>
+                                                    <textarea name="comments" id="comments" rows="4" class="form-control ps-5" placeholder="توانایی ها :"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--end row-->
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <input type="submit" id="submit" name="send" class="btn btn-primary" value="ثبت رزومه">
+                                        </div><!--end col-->
+                                    </div><!--end row-->
+                                </form><!--end form-->
+
+                                
+                              
+                            </div>
+                            
                             </div><!--end teb pane-->
                         </div><!--end tab content-->
                     </div><!--end col-->
