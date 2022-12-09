@@ -126,6 +126,9 @@ if(isset($_POST['submit'])){
     
                                             </div>
                                         </div><!--end col-->
+                                        <div class="mx-auto">
+                                            <p class="mb-0 mt-3"><small class="text-dark me-2">قبلاً حساب دارید؟</small> <a href="auth-login-three.html" class="text-dark fw-bold">وارد شوید </a></p>
+                                        </div>
                                     </div><!--end row-->
                                 </form>
                             </div>
