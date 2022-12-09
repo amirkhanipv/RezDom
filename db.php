@@ -21,7 +21,7 @@ class DB
             }
         }
     }
-    public function AddToDb($UserName, $Password,$FirstName,$LastName)
+    public function AddToDb($Name,$Lastname,$UserName,$Email,$Password)
     {
         $query = "select count(*) from Users where UserName=?";
         $result = $this->Connection->prepare($query);
@@ -32,12 +32,13 @@ class DB
             return false;
         } else {
             $Passhash = password_hash($Password, PASSWORD_DEFAULT);
-            $query = "insert into Users values (null,?,?,?,?,0)";
+            $query = "insert into Users values (null,?,?,?,?,0,?,Null)";
             $result = $this->Connection->prepare($query);
             $result->bindValue(1, $UserName);
             $result->bindValue(2, $Passhash);
-            $result->bindValue(3, $FirstName);
-            $result->bindValue(4, $LastName);
+            $result->bindValue(3, $Name);
+            $result->bindValue(4, $Lastname);
+            $result->bindValue(5, $Email);
             $finish = $result->execute();
             if ($finish) {
                 return true;

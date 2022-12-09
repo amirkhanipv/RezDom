@@ -15,14 +15,16 @@ if(isset($_SESSION['login']['status'])){
 
 if(isset($_POST['submit'])){
 
-    $Name = trim($_POST['Name']);
+    $Name = trim($_POST['FirstName']);
+    $Lastname = trim($_POST['LastName']);
     $UserName = trim($_POST['UserName']);
-    $Phone = trim($_POST['Phone']);
+    $Email = trim($_POST['Email']);
     $Password = trim($_POST['Password']);
-    if(!empty($Name) && !empty($UserName)&&
-    !empty($Phone) && !empty($Password))
+    if(!empty($Name) && !empty($Lastname)&&
+    !empty($UserName) && !empty($Email) && !empty($Password))
     {
-       $result =  $DB->AddToDb($Name,$Phone,$UserName,$Password);
+        
+       $result =  $DB->AddToDb($Name,$Lastname,$UserName,$Email,$Password);
        if($result){
         header('Location:login.php');
        }
@@ -68,14 +70,14 @@ if(isset($_POST['submit'])){
                         <div class="card shadow rounded border-0 mt-4">
                             <div class="card-body">
                                 <h4 class="card-title text-center">ثبت نام </h4>  
-                                <form class="login-form mt-4">
+                                <form class="login-form mt-4" method="POST">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">نام<span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input type="text" class="form-control ps-5" placeholder="نام " name="s" required="">
+                                                    <input type="text" class="form-control ps-5" placeholder="نام " name="FirstName" required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -85,7 +87,7 @@ if(isset($_POST['submit'])){
                                                 <label class="form-label">نام خانوادگی  <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user-check" class="fea icon-sm icons"></i>
-                                                    <input type="text" class="form-control ps-5" placeholder="نام خانوادگی" name="s" required="">
+                                                    <input type="text" class="form-control ps-5" placeholder="نام خانوادگی" name="LastName" required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -95,7 +97,7 @@ if(isset($_POST['submit'])){
                                                 <label class="form-label">نام کاربری<span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input type="text" class="form-control ps-5" placeholder="نام کاربری" name="username" required="">
+                                                    <input type="text" class="form-control ps-5" placeholder="نام کاربری" name="UserName" required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -105,7 +107,7 @@ if(isset($_POST['submit'])){
                                                 <label class="form-label">ایمیل شما <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="mail" class="fea icon-sm icons"></i>
-                                                    <input type="email" class="form-control ps-5" placeholder="ایمیل" name="email" required="">
+                                                    <input type="email" class="form-control ps-5" placeholder="ایمیل" name="Email" required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +117,7 @@ if(isset($_POST['submit'])){
                                                 <label class="form-label">رمز عبور  <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="key" class="fea icon-sm icons"></i>
-                                                    <input type="password" class="form-control ps-5" placeholder="رمز عبور " required="">
+                                                    <input type="password" class="form-control ps-5" placeholder="رمز عبور " name="Password" required="">
                                                 </div>
                                             </div>
                                         </div>
