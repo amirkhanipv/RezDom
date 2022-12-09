@@ -37,10 +37,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">نام اصلی  <span class="text-danger">*</span></label>
+                                                <label class="form-label">نام<span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input type="text" class="form-control ps-5" placeholder="نام اصلی " name="s" required="">
+                                                    <input type="text" class="form-control ps-5" placeholder="نام " name="s" required="">
                                                 </div>
                                             </div>
                                         </div>
