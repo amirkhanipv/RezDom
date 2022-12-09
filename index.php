@@ -70,7 +70,7 @@ if(isset($_SESSION['login']['status'])){
                             <h4 class="heading text-white mb-3 title-dark"> بهترین سایت برای ارتباط<br> با برنامه نویسان</h4>
                             <p class="para-desc text-white-50"> میتونی رزومه خودتو داخل سایت ثبت کنی تا اشخاصی که بهت نیاز دارن پیدات کنن و باهات همکاری کنند. سایت ما رایگانه پس همین الان رزومتو ثبت کن!</p>
                             <div class="mt-4 pt-2">
-                                <a href="javascript:void(0)" style="margin-bottom: 30px;;" class="btn btn-light">ثبت رزومه  <i class="mdi mdi-arrow-left"> </i></a>
+                                <a href="./register.php" style="margin-bottom: 30px;;" class="btn btn-light">ثبت رزومه  <i class="mdi mdi-arrow-left"> </i></a>
                             </div>
                         </div>
                     </div><!--end col-->
