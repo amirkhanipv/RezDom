@@ -202,22 +202,13 @@ $_LastName = $user->LastName;
                                         </div><!--end col-->
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">اشتغال </label>
+                                                <label class="form-label">نام کاربری</label>
                                                 <div class="form-icon position-relative">
-                                                    <i data-feather="bookmark" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="occupation" type="text" class="form-control ps-5" placeholder="کار :">
+                                                    <i data-feather="user" class="fea icon-sm icons"></i>
+                                                    <input name="name" id="occupation" type="text" class="form-control ps-5" placeholder="نام کاربری :">
                                                 </div>
                                             </div> 
                                         </div><!--end col-->
-                                        <div class="col-lg-12">
-                                            <div class="mb-3">
-                                                <label class="form-label">توضیحات </label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="message-circle" class="fea icon-sm icons"></i>
-                                                    <textarea name="comments" id="comments" rows="4" class="form-control ps-5" placeholder="توضیحات :"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div><!--end row-->
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -225,83 +216,6 @@ $_LastName = $user->LastName;
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </form><!--end form-->
-
-                                
-                                <div class="row">
-                                    <div class="col-md-6 mt-4 pt-2">
-                                        <h5>اطلاعات تماس :</h5>
-
-                                        <form>
-                                            <div class="row mt-4">
-                                                <div class="col-lg-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">شماره تلفن :</label>
-                                                        <div class="form-icon position-relative">
-                                                            <i data-feather="phone" class="fea icon-sm icons"></i>
-                                                            <input name="number" id="number" type="number" class="form-control ps-5" placeholder="تلفن :">
-                                                        </div>
-                                                    </div>
-                                                </div><!--end col-->
-
-                                                <div class="col-lg-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">وب سایت:</label>
-                                                        <div class="form-icon position-relative">
-                                                            <i data-feather="globe" class="fea icon-sm icons"></i>
-                                                            <input name="url" id="url" type="url" class="form-control ps-5" placeholder="آدرس: ">
-                                                        </div>
-                                                    </div>
-                                                </div><!--end col-->
-
-                                                <div class="col-lg-12 mt-2 mb-0">
-                                                    <button class="btn btn-primary">افزودن </button>
-                                                </div><!--end col-->
-                                            </div><!--end row-->
-                                        </form>
-                                    </div><!--end col-->
-                                    
-                                    <div class="col-md-6 mt-4 pt-2"> 
-                                        <h5>تغییر رمز عبور : </h5>
-                                        <form>
-                                            <div class="row mt-4">
-                                                <div class="col-lg-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">رمز عبور قدیمی : </label>
-                                                        <div class="form-icon position-relative">
-                                                            <i data-feather="key" class="fea icon-sm icons"></i>
-                                                            <input type="password" class="form-control ps-5" placeholder="رمز قدیمی" required="">
-                                                        </div>
-                                                    </div>
-                                                </div><!--end col-->
-            
-                                                <div class="col-lg-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">رمز عبور جدید : </label>
-                                                        <div class="form-icon position-relative">
-                                                            <i data-feather="key" class="fea icon-sm icons"></i>
-                                                            <input type="password" class="form-control ps-5" placeholder="رمز جدید" required="">
-                                                        </div>
-                                                    </div>
-                                                </div><!--end col-->
-            
-                                                <div class="col-lg-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">تایید رمز عبور جدید : </label>
-                                                        <div class="form-icon position-relative">
-                                                            <i data-feather="key" class="fea icon-sm icons"></i>
-                                                            <input type="password" class="form-control ps-5" placeholder="رمز عبور جدید" required="">
-                                                        </div>
-                                                    </div>
-                                                </div><!--end col-->
-            
-                                                <div class="col-lg-12 mt-2 mb-0">
-                                                    <button class="btn btn-primary">ذخیره رمز عبور </button>
-                                                </div><!--end col-->
-                                            </div><!--end row-->
-                                        </form>
-                                    </div><!--end col-->
-                                </div><!--end row-->
-                            
                             
                             </div><!--end teb pane-->
                             
