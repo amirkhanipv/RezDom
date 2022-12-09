@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-        <meta charset="utf-8" />   <title>RezDom | ورود</title>
+        <meta charset="utf-8" />   <title>RezDom | ثبت نام</title>
         <meta name="author" content="AmirKhani" />
         <!-- favicon -->
         <link rel="shortcut icon" href="images/a_add.png">
