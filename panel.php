@@ -6,9 +6,9 @@ if (isset($_COOKIE['remembr'])) {
     $DB->Forcelogin($_COOKIE['remembr']);
 }
 
-//if (!isset($_SESSION['login']['status'])) {
-    //header('Location:login.php');
-//}
+if (!isset($_SESSION['login']['status'])) {
+    header('Location:login.php');
+}
 
 $UName = $_SESSION['login']['info']->UserName;
 $user = $DB->CheckAcc($UName);

@@ -1,4 +1,39 @@
+<?php
+include_once __DIR__.DIRECTORY_SEPARATOR."db.php";
+$DB = new DB();
+$error=null;
 
+if(isset($_COOKIE['remembr']))
+{
+    $DB->Forcelogin($_COOKIE['remembr']);
+}
+
+if(isset($_SESSION['login']['status'])){
+    header('Location:panel.php');
+}
+
+
+if(isset($_POST['submit'])){
+
+    $Name = trim($_POST['Name']);
+    $UserName = trim($_POST['UserName']);
+    $Phone = trim($_POST['Phone']);
+    $Password = trim($_POST['Password']);
+    if(!empty($Name) && !empty($UserName)&&
+    !empty($Phone) && !empty($Password))
+    {
+       $result =  $DB->AddToDb($Name,$Phone,$UserName,$Password);
+       if($result){
+        header('Location:login.php');
+       }
+        
+    }
+    else{
+        $error='!لطفا تمامی فیلد ها را کامل کنید';
+    }
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

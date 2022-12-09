@@ -2,10 +2,11 @@
 include_once __DIR__.DIRECTORY_SEPARATOR."db.php";
 $DB = new DB();
 $error='';
-// if(isset($_COOKIE['remembr']))
-// {
-//     $DB->Forcelogin($_COOKIE['remembr']);
-// }
+
+if(isset($_COOKIE['remembr']))
+{
+    $DB->Forcelogin($_COOKIE['remembr']);
+}
 
 if(isset($_SESSION['login']['status'])){
     header('Location:panel.php');
@@ -113,7 +114,7 @@ if(isset($_POST['submit'])){
                                             <div class="d-flex justify-content-between">
                                                 <div class="mb-3">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <input class="form-check-input" type="checkbox" name="rememberme" id="flexCheckDefault">
                                                         <label class="form-check-label" for="flexCheckDefault">مرا به خاطر بسپار </label>
                                                     </div>
                                                 </div>
