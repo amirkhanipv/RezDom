@@ -2,9 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    
 <head>
-<meta charset="utf-8" />   <title>RezDom | ثبت نام</title>
+        <meta charset="utf-8" />   <title>RezDom | ورود</title>
         <meta name="author" content="AmirKhani" />
         <!-- favicon -->
         <link rel="shortcut icon" href="images/a_add.png">
@@ -20,10 +19,13 @@
 
     <body>
 
+
         <div class="back-to-home rounded d-none d-sm-block">
-            <a href="./index.php" class="btn btn-icon btn-primary"><i data-feather="home" class="icons"></i></a>
+            <a href="./" class="btn btn-icon btn-primary"><i data-feather="home" class="icons"></i></a>
         </div>
-        <section class="bg-auth-home bg-circle-gradiant d-table w-100">
+        
+        <!-- Show ON -->
+        <section class="bg-home bg-circle-gradiant d-flex align-items-center">
             <div class="bg-overlay bg-overlay-white"></div>
             <div class="container">
                 <div class="row justify-content-center">
@@ -85,7 +87,8 @@
                 </div><!--end row-->
             </div> <!--end container-->
         </section><!--end section-->
-        <!-- پایان آن -->
+        <!-- End On -->
+
 
         <!-- javascript -->
         <script src="js/bootstrap.bundle.min.js"></script>
