@@ -91,10 +91,10 @@ if(isset($_POST['submit'])){
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="mb-3">
-                                                <label class="form-label">ایمیل شما <span class="text-danger">*</span></label>
+                                                <label class="form-label">نام کاربری <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input type="text" class="form-control ps-5" placeholder="ایمیل" name="UserName" required="">
+                                                    <input type="text" class="form-control ps-5" placeholder="نام کاربری" name="UserName" required="">
                                                 </div>
                                             </div>
                                         </div><!--end col-->
