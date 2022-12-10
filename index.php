@@ -92,7 +92,7 @@ if(isset($_SESSION['login']['status'])){
                 
                 <div class="row">
                     <?php 
-                    for ($i=0; $i <1 ; $i++) { 
+                    for ($i=0; $i <6 ; $i++) { 
                         ?>
                       <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="candidate-list card rounded border-0 shadow">
@@ -121,14 +121,22 @@ if(isset($_SESSION['login']['status'])){
                                                 <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button border-0 bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                                                         aria-expanded="true" aria-controls="collapseOne">
-                                                        چگونه کار می کند؟
+                                                      <span style="color:aliceblue;"> نحوه ارتباط</span>
                                                     </button>
                                                 </h2>
                                                 <div id="collapseOne" class="accordion-collapse border-0 collapse show" aria-labelledby="headingOne"
                                                     data-bs-parent="#buyingquestion">
-                                                    <div class="accordion-body text-muted bg-white">
-                                                        تعداد زیادی از معابر لورم اپیسون در دسترس است ، اما اکثر آنها به نوعی دچار تغییر شده اند.
-                                                    </div>
+                                                    
+                                                        <div style="padding:10px;"> 
+                                                          <div style="padding:10px;margin-bottom:5px ;" class="candidate-list card rounded border-1 shadow">
+                                                           <span style="display: flex; justify-content:space-between;align-items:center"><a>amirkhanipv@gmail.com</a><i data-feather="mail" class="fea icon-sm icons"></i></span>
+                                                          
+                                                          </div>
+                                                          <div style="padding:10px;" class="candidate-list card rounded border-1 shadow">
+                                                          <span style="display: flex; justify-content:space-between;align-items:center"><a>09383280036</a><i data-feather="phone" class="fea icon-sm icons"></i></span>
+                                                          </div>
+                                                       </div>
+                                                    
                                                 </div>
                                             </div>
                                     </div>
