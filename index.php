@@ -114,9 +114,22 @@ if(isset($_SESSION['login']['status'])){
                                     </div>
                                     <span class="text-muted"><i class="uil uil-graduation-cap h4 mb-0 me-2 text-primary"></i>تجربه: <span class="text-success">3+ سال </span></span>
                                     <br>
-                                    <span class="text-muted"><i class="uil uil-18-plus h4 mb-0 me-2 text-primary"></i>سن:   <span class="text-success"> 22</span></span>
+                                    <span class="text-muted"><i class="uil uil-18-plus h4 mb-0 me-2 text-primary"></i>سن:   <span class="text-success"> 22</span></span><br>
                                     <div class="d-grid">
-                        
+                                    <div class="accordion-item rounded">
+                                                <h2 class="accordion-header" id="headingOne">
+                                                    <button class="accordion-button border-0 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                        aria-expanded="true" aria-controls="collapseOne">
+                                                        چگونه کار می کند؟
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseOne" class="accordion-collapse border-0 collapse show" aria-labelledby="headingOne"
+                                                    data-bs-parent="#buyingquestion">
+                                                    <div class="accordion-body text-muted bg-white">
+                                                        تعداد زیادی از معابر لورم اپیسون در دسترس است ، اما اکثر آنها به نوعی دچار تغییر شده اند.
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

@@ -341,6 +341,7 @@ $_email=$user->Email;
                                         </div>
 
                                         </div><!--end col-->
+                               
                                     </div><!--end row-->
                                     <div class="row">
                                         <div class="col-sm-12">
