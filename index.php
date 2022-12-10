@@ -6,7 +6,7 @@ if(isset($_SESSION['login']['status'])){
     $UserName = $_SESSION['login']['info']->UserName;
     $user = $DB->CheckAcc($UserName);
 }
-
+$users = $DB->GetCv();
 ?>
 
 <!DOCTYPE html>
@@ -50,10 +50,6 @@ if(isset($_SESSION['login']['status'])){
                     }
                     
                     ?>
-                
-                    
-                
-                
         
                
             </div><!--end container-->
@@ -92,58 +88,44 @@ if(isset($_SESSION['login']['status'])){
                 
                 <div class="row">
                     <?php 
-                    for ($i=0; $i <6 ; $i++) { 
+                    foreach($users as $user) { 
                         ?>
-                      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="candidate-list card rounded border-0 shadow">
                             <div class="card-body">
                                 <ul class="list-unstyled align-items-center">
-                                    <li class="list-inline-item float-end"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart h5 mb-0"></i></a></li>
+
                                     <li class="list-inline-item"><span class="badge rounded-pill bg-soft-success">ویژه </span></li>
                                 </ul>
 
                                 <div class="content text-center">
-                                    <img src="images/client/01.jpg" class="avatar avatar-md-md shadow-md rounded-circle" alt="">
-                                    <br>
-                                    <a href="page-job-candidate.html" class="text-dark h5 name">کالوین لورس</a>
-                                    <p class="text-muted my-1">توسعه بک اند</p>
-                                    <div >
-                                    <i class="uil uil-english-to-chinese h4 mb-0 me-0 text-primary"></i>
-                                    <span class="text-muted ">زبان انگلیسی<i class="uil uil-check text-success"></i></span>
-                                    <span class="text-muted">زبان فرانسوی<i class="uil uil-check text-success"></i></span>
-                                    </div>
-                                    <span class="text-muted"><i class="uil uil-graduation-cap h4 mb-0 me-2 text-primary"></i>تجربه: <span class="text-success">3+ سال </span></span>
-                                    <br>
-                                    <span class="text-muted"><i class="uil uil-18-plus h4 mb-0 me-2 text-primary"></i>سن:   <span class="text-success"> 22</span></span><br>
+                                    <img src="images/client/07.jpg" class="avatar avatar-md-md shadow-md rounded-circle" alt="">
+                                    <ul class="list-unstyled mb-1 mt-2">
+                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
+                                    </ul>
+                                    <a href="page-job-candidate.html" class="text-dark h5 name"><?php echo($user->FirstName." ".$user->LastName);?></a>
+                                    <p class="text-muted my-1">توسعه برنامه</p>
+
+                                    <span class="text-muted"><i class="uil uil-graduation-cap h4 mb-0 me-2 text-primary"></i>تجربه  <span class="text-success">3+ سال </span></span>
+                                    
+                                    <ul class="list-unstyled mt-3">
+                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">PHP</a></li>
+                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">وردپرس </a></li>
+                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">طراحی وب </a></li>
+                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">CSS</a></li>
+                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">JS</a></li>
+                                    </ul>
                                     <div class="d-grid">
-                                        <br>
-                                    <div class="accordion-item rounded">
-                                                <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button border-0 bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                                        aria-expanded="true" aria-controls="collapseOne">
-                                                      <span style="color:aliceblue;"> نحوه ارتباط</span>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseOne" class="accordion-collapse border-0 collapse show" aria-labelledby="headingOne"
-                                                    data-bs-parent="#buyingquestion">
-                                                    
-                                                        <div style="padding:10px;"> 
-                                                          <div style="padding:10px;margin-bottom:5px ;" class="candidate-list card rounded border-1 shadow">
-                                                           <span style="display: flex; justify-content:space-between;align-items:center"><a>amirkhanipv@gmail.com</a><i data-feather="mail" class="fea icon-sm icons"></i></span>
-                                                          
-                                                          </div>
-                                                          <div style="padding:10px;" class="candidate-list card rounded border-1 shadow">
-                                                          <span style="display: flex; justify-content:space-between;align-items:center"><a>09383280036</a><i data-feather="phone" class="fea icon-sm icons"></i></span>
-                                                          </div>
-                                                       </div>
-                                                    
-                                                </div>
-                                            </div>
+                                        <a href="page-job-candidate.html" class="btn btn-soft-primary">مشاهده رزومه<i class="uil uil-angle-left-b align-middle"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div><!--end col-->
                     <?php
                     }
                     ?>

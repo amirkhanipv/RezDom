@@ -285,4 +285,14 @@ class DB
             return $data;
         }
     }
+
+    function GetCv(){
+     
+        $query = "select * from users";
+        $result = $this->Connection->prepare($query);
+        $result->execute();
+        $data = $result->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+        
+    }
 }
