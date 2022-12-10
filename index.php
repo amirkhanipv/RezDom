@@ -92,7 +92,7 @@ if(isset($_SESSION['login']['status'])){
                 
                 <div class="row">
                     <?php 
-                    for ($i=0; $i <5 ; $i++) { 
+                    for ($i=0; $i <1 ; $i++) { 
                         ?>
                       <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="candidate-list card rounded border-0 shadow">
@@ -107,16 +107,14 @@ if(isset($_SESSION['login']['status'])){
                                     <br>
                                     <a href="page-job-candidate.html" class="text-dark h5 name">کالوین لورس</a>
                                     <p class="text-muted my-1">توسعه بک اند</p>
-
-                                    <span class="text-muted"><i class="uil uil-graduation-cap h4 mb-0 me-2 text-primary"></i>تجربه  <span class="text-success">3+ سال </span></span>
-                                    
-                                    <ul class="list-unstyled mt-3">
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">PHP</a></li>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">وردپرس </a></li>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">طراحی وب </a></li>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">CSS</a></li>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">JS</a></li>
-                                    </ul>
+                                    <div >
+                                    <i class="uil uil-english-to-chinese h4 mb-0 me-0 text-primary"></i>
+                                    <span class="text-muted ">زبان انگلیسی<i class="uil uil-check text-success"></i></span>
+                                    <span class="text-muted">زبان فرانسوی<i class="uil uil-check text-success"></i></span>
+                                    </div>
+                                    <span class="text-muted"><i class="uil uil-graduation-cap h4 mb-0 me-2 text-primary"></i>تجربه: <span class="text-success">3+ سال </span></span>
+                                    <br>
+                                    <span class="text-muted"><i class="uil uil-18-plus h4 mb-0 me-2 text-primary"></i>سن:   <span class="text-success"> 22</span></span>
                                     <div class="d-grid">
                         
                                     </div>

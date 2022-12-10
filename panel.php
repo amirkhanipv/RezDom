@@ -341,15 +341,6 @@ $_email=$user->Email;
                                         </div>
 
                                         </div><!--end col-->
-                                        <div class="col-lg-12">
-                                            <div class="mb-3">
-                                                <label class="form-label">توانایی ها</label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="message-circle" class="fea icon-sm icons"></i>
-                                                    <textarea name="comments" id="comments" rows="4" class="form-control ps-5" placeholder="توانایی ها :"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div><!--end row-->
                                     <div class="row">
                                         <div class="col-sm-12">
