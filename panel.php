@@ -209,7 +209,7 @@ $_email=$user->Email;
                             <div class="tab-pane fade" id="time-line" role="tabpanel" aria-labelledby="timeline">
               
                             <div class="card-body">
-                                <h5 class="text-md-start text-center">جزئیات شخصی :</h5>
+                                <h5 class="text-md-start text-center">رزومه  :</h5>
 
                                 <div class="mt-3 text-md-start text-center d-sm-flex">
                                     <img src="images/client/05.jpg" class="avatar float-md-left avatar-medium rounded-circle shadow me-md-4" alt="">
