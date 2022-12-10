@@ -224,7 +224,7 @@ $_email=$user->Email;
                                     <div class="row mt-4">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">نام </label>
+                                                <label class="form-label">نام <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user" class="fea icon-sm icons"></i>
                                                     <input name="name" id="first" type="text" class="form-control ps-5" placeholder="نام :"  value="<?php echo$_FirstName?>">
@@ -233,7 +233,7 @@ $_email=$user->Email;
                                         </div><!--end col-->
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">نام خانوادگی </label>
+                                                <label class="form-label">نام خانوادگی <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user-check" class="fea icon-sm icons"></i>
                                                     <input name="name" id="last" type="text" class="form-control ps-5" placeholder="نام خانوادگی :"  value="<?php echo$_LastName?>">
@@ -242,7 +242,7 @@ $_email=$user->Email;
                                         </div><!--end col-->
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">ایمیل شما در رزومه</label>
+                                                <label class="form-label">ایمیل شما در رزومه<span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="mail" class="fea icon-sm icons"></i>
                                                     <input name="email" id="email" type="email" class="form-control ps-5" placeholder=" ایمیل شما در رزومه :"  value="<?php echo$_email?>">
@@ -251,7 +251,7 @@ $_email=$user->Email;
                                         </div><!--end col-->
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">تخصص اصلی </label>
+                                                <label class="form-label">تخصص اصلی <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="code" class="fea icon-sm icons"></i>
                                                     <input name="name" id="job" type="text" class="form-control ps-5" placeholder="تخصص اصلی :">
@@ -262,7 +262,7 @@ $_email=$user->Email;
 
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                            <label class="form-label">سن</label>
+                                            <label class="form-label">سن <span class="text-danger">*</span></label>
                                             <div class="form-icon position-relative">
                                             <select class="form-select form-control" aria-label="Default select example">
                                                 <option value="0" disabled selected>سن : </option>
@@ -299,10 +299,11 @@ $_email=$user->Email;
                                         </div>
                                             <div class="col-md-6">
                                             <div class="mb-3">
-                                            <label class="form-label">سابقه کاری</label>
+                                            <label class="form-label">سابقه کاری <span class="text-danger">*</span></label>
                                             <div class="form-icon position-relative">
                                             <select class="form-select form-control" aria-label="Default select example">
-                                                <option value="0" disabled selected>سابقه کاری: </option>
+                                                <option disabled selected>سابقه کاری: </option>
+                                                <option value="0">کمتر از یک سال </option>
                                                 <option value="1">یک سال </option>
                                                 <option value="2">دو سال</option>
                                                 <option value="3">بیشتر از دو سال</option>
@@ -310,10 +311,11 @@ $_email=$user->Email;
                                             </div>
                                             </div> 
                                         </div>
+                                      
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 
-                                            <label class="form-label">جنسیت</label>
+                                            <label class="form-label">جنسیت <span class="text-danger">*</span></label>
                                             <div class="form-icon position-relative">
                                             
                                             <div class="form-check form-check-inline" >
@@ -340,7 +342,15 @@ $_email=$user->Email;
                                             
                                         </div>
 
-                                        </div><!--end col-->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">شماره تماس</label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="phone" class="fea icon-sm icons"></i>
+                                                    <input name="phone" id="phone" type="tel" class="form-control ps-5" placeholder="شماره تماس">
+                                                </div>
+                                            </div> 
+                                     
                                
                                     </div><!--end row-->
                                     <div class="row">

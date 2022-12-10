@@ -116,9 +116,10 @@ if(isset($_SESSION['login']['status'])){
                                     <br>
                                     <span class="text-muted"><i class="uil uil-18-plus h4 mb-0 me-2 text-primary"></i>سن:   <span class="text-success"> 22</span></span><br>
                                     <div class="d-grid">
+                                        <br>
                                     <div class="accordion-item rounded">
                                                 <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button border-0 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                    <button class="accordion-button border-0 bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                                                         aria-expanded="true" aria-controls="collapseOne">
                                                         چگونه کار می کند؟
                                                     </button>
