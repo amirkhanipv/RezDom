@@ -183,19 +183,7 @@ class DB
     }
 
 
-    function CheckAcc($UserName)
-    {
-        $query = "select * from Users where UserName=:UserName";
-        $result = $this->Connection->prepare($query);
-        $result->bindValue(':UserName', $UserName);
-        $result->execute();
-        $user = $result->fetch(PDO::FETCH_OBJ);
-        if ($user) {
-            return $user;
-        } else {
-            return false;
-        }
-    }
+  
     function getRememberMEToken($UserName)
     {
         $query = "update users set RememberMe=? where UserName=?";
@@ -286,6 +274,22 @@ class DB
         }
     }
 
+
+    
+    function CheckAcc($UserName)
+    {
+        $query = "select * from Users where UserName=:UserName";
+        $result = $this->Connection->prepare($query);
+        $result->bindValue(':UserName', $UserName);
+        $result->execute();
+        $user = $result->fetch(PDO::FETCH_OBJ);
+        if ($user) {
+            return $user;
+        } else {
+            return false;
+        }
+    }
+
     function GetCv(){
      
         $query = "select * from users";
@@ -296,6 +300,17 @@ class DB
         
     }
 
+    function GetCVByID($UserID){
+     
+        $query = "select * from users_cv where UserID=:UserID";
+        $result = $this->Connection->prepare($query);
+        $result->bindValue(':UserID', $UserID);
+        $result->execute();
+        $user = $result->fetch(PDO::FETCH_OBJ);
+        return $user;
+        
+    }
+    
     function UpdateAccount($_FirstNameNew, $_LastNameNew,$_EmailNew, $UserID){
         $query = "update users set FirstName=?,LastName=?,Email=? where ID=? ";
         $result = $this->Connection->prepare($query);
@@ -310,17 +325,45 @@ class DB
         return true;
     }
 
-    function UpdateCV($_FirstNameNew, $_LastNameNew,$_EmailNew, $UserID){
-        $query = "update cv set FirstName=?,LastName=?,Email=? where ID=? ";
+    function UpdateCV($_about, $_age, $_lang , $_ywr, $_phone , $_specialties , $_gender , $_UserId){
+        $query = "select count(*) from users_cv where userid=?";
         $result = $this->Connection->prepare($query);
-        $result->bindValue(1, $_FirstNameNew);
-        $result->bindValue(2, $_LastNameNew);
-        $result->bindValue(3, $_EmailNew);
-        $result->bindValue(4, $UserID);
+        $result->bindValue(1, $_UserId);
         $result->execute();
-        if ($result->rowCount() == 0) {
-            return false;
+        $count = $result->fetchColumn();
+        if ($count >= 1) 
+        {
+            $query = "update users_cv set About=?,Age=?,YWR=?,Phone=?,Specialties=?,Gender=?,Language=? where UserID=?";
+            $result = $this->Connection->prepare($query);
+            $result->bindValue(1, $_about);
+            $result->bindValue(2, $_age);
+            $result->bindValue(3, $_ywr);
+            $result->bindValue(4, $_phone);
+            $result->bindValue(5, $_specialties);
+            $result->bindValue(6, $_gender);
+            $result->bindValue(7, $_lang);
+            $result->bindValue(8, $_UserId);
+            $result->execute();
+            if ($result->rowCount() == 0) {
+                return false;
+            }
+            return true;
         }
-        return true;
+        else{
+            $query = "insert into users_cv values (null,?,?,?,?,?,?,?,?)";
+            $result = $this->Connection->prepare($query);
+            $result->bindValue(1, $_UserId);
+            $result->bindValue(2, $_about);
+            $result->bindValue(3, $_age);
+            $result->bindValue(4, $_ywr);
+            $result->bindValue(5, $_phone);
+            $result->bindValue(6, $_specialties);
+            $result->bindValue(7, $_gender);
+            $result->bindValue(8, $_lang);
+            $finish = $result->execute();
+            if ($finish) {
+                return true;
+            }
+        }
     }
 }

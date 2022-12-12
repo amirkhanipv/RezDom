@@ -23,6 +23,9 @@ $_mix=$_FirstName." ".$_LastName;
 $_email=$user->Email;
 $_UserId = $user->ID;
 
+$cv = $DB->GetCVByID($_UserId);
+$cvlng = $cv->Language;
+
 if (isset($_POST['account'])) {
 
     $_FirstNameNew = trim($_POST['FirstName']);
@@ -45,14 +48,20 @@ if (isset($_POST['account'])) {
 }
 
 if (isset($_POST['cv'])) {
-
+    
+    $_gender = "male";
     $_about = trim($_POST['about']);
     $_age = trim($_POST['age']);
-    $_lang = trim($_POST['lang'][1]);
-    exit($_lang);
-    if (!empty($_FirstNameNew) && !empty($_LastNameNew)) {
+    $_lang = trim($_POST['lang'][0]);
+    $_ywr = trim($_POST['ywr']);
+    $_phone = trim($_POST['phone']);
+    $_specialties = trim($_POST['specialties']);
+    $_gender = trim($_POST['gender']);
 
-        $result = $DB->UpdateAccount($_FirstNameNew, $_LastNameNew,$_EmailNew, $_UserId);
+
+    if (!empty($_about) && !empty($_age) && !empty($_ywr) && !empty($_gender) && !empty($_specialties)) {
+
+        $result = $DB->UpdateCV($_about, $_age, $_lang , $_ywr, $_phone , $_specialties , $_gender , $_UserId);
         header('Location:panel.php');
     }
     else{
@@ -280,7 +289,7 @@ if (isset($_POST['cv'])) {
                                             <div class="form-icon position-relative">
 
                                                  <i data-feather="info" class="fea icon-sm icons"></i>
-                                                 <textarea name="about" id="job" class="form-control ps-5" placeholder="توضیحات مربوط به خود"></textarea>
+                                                 <textarea name="about" id="job" class="form-control ps-5" placeholder="توضیحات مربوط به خود"><?php echo($cv->About);?></textarea>
                                       
                                             </div>
                                         </div>
@@ -290,11 +299,11 @@ if (isset($_POST['cv'])) {
                                             <label class="form-label">سن <span class="text-danger">*</span></label>
                                             <div class="form-icon position-relative">
                                             <select name="age" class="form-select form-control" aria-label="Default select example">
-                                                <option value="0" disabled selected>سن : </option>
-                                                <option value="بین 13 تا 18 سال">بین 13 تا 18 سال</option>
-                                                <option value="بین 18 تا 25 سال">بین 18 تا 25 سال</option>
-                                                <option value="بین 25 تا 30 سال">بین 25 تا 30 سال</option>
-                                                <option value="بالای 30 سال">بالای 30 سال</option>
+                                                <option value="" disabled selected>سن : </option>
+                                                <option value="بین 13 تا 18 سال" <?php if($cv->Age == "بین 13 تا 18 سال"){echo("selected");}?>>بین 13 تا 18 سال</option>
+                                                <option value="بین 18 تا 25 سال" <?php if($cv->Age == "بین 18 تا 25 سال"){echo("selected");}?>>بین 18 تا 25 سال</option>
+                                                <option value="بین 25 تا 30 سال" <?php if($cv->Age == "بین 25 تا 30 سال"){echo("selected");}?>>بین 25 تا 30 سال</option>
+                                                <option value="بالای 30 سال" <?php if($cv->Age == "بالای 30 سال"){echo("selected");}?>>بالای 30 سال</option>
                                             </select>
                                             </div>
                                             </div> 
@@ -306,7 +315,7 @@ if (isset($_POST['cv'])) {
                                             <div class="form-check form-check-inline">
                                             <div class="mb-0">
                                                 <div class="form-check">
-                                                    <input name="lang[]" class="form-check-input" type="checkbox" value="en" id="flexCheckDefault1">
+                                                    <input name="lang[]" class="form-check-input" type="checkbox" value="en" id="flexCheckDefault1" <?php if(strpos($cvlng, 'en')!== false){ echo("checked"); } ?> >
                                                     <label class="form-check-label" for="flexCheckDefault1">انگلیسی </label>
                                                 </div>
                                             </div>
@@ -314,7 +323,7 @@ if (isset($_POST['cv'])) {
                                         <div class="form-check form-check-inline">
                                             <div class="mb-0">
                                                 <div class="form-check">
-                                                    <input name="lang[]" class="form-check-input" type="checkbox" value="fr" id="flexCheckDefault2">
+                                                    <input name="lang[]" class="form-check-input" type="checkbox" value="fr" id="flexCheckDefault2" <?php if(strpos($cvlng, 'fr')!== false){ echo("checked"); } ?> >
                                                     <label class="form-check-label" for="flexCheckDefault2">فرانسوی </label>
                                                 </div>
                                             </div>
@@ -328,10 +337,10 @@ if (isset($_POST['cv'])) {
                                             <div class="form-icon position-relative">
                                             <select name="ywr" class="form-select form-control" aria-label="Default select example">
                                                 <option disabled selected>سابقه کاری: </option>
-                                                <option value="کمتر از یک سال ">کمتر از یک سال </option>
-                                                <option value="یک سال ">یک سال </option>
-                                                <option value="دو سال">دو سال</option>
-                                                <option value="بیشتر از دو سال">بیشتر از دو سال</option>
+                                                <option value="کمتر از یک سال " <?php if($cv->YWR == "کمتر از یک سال "){echo("selected");}?>>کمتر از یک سال </option>
+                                                <option value="یک سال " <?php if($cv->YWR == "یک سال"){echo("selected");}?>>یک سال </option>
+                                                <option value="دو سال" <?php if($cv->YWR == "دو سال"){echo("selected");}?>>دو سال</option>
+                                                <option value="بیشتر از دو سال" <?php if($cv->YWR == "بیشتر از دو سال"){echo("selected");}?>>بیشتر از دو سال</option>
                                             </select>
                                             </div>
                                             </div> 
@@ -346,7 +355,7 @@ if (isset($_POST['cv'])) {
                                             <div class="form-check form-check-inline" >
                                         
                                             <div class="form-check mb-0">
-                                                <input name="gender" class="form-check-input" checked  type="radio"  id="flexRadioDefault1" value="male">
+                                                <input name="gender" class="form-check-input" <?php if(strpos($cv->Gender, 'male')!== false){ echo("checked"); } ?>  type="radio"  id="flexRadioDefault1" value="male" >
                                                 <label class="form-check-label" for="flexRadioDefault1">آقا</label>
                                             </div>
                                            
@@ -355,7 +364,7 @@ if (isset($_POST['cv'])) {
                                         <div class="form-check form-check-inline">
                                            
                                             <div class="form-check mb-0">
-                                                <input name="gender" class="form-check-input"  type="radio"  id="flexRadioDefault2" value="female" >
+                                                <input name="gender" class="form-check-input"  type="radio"  id="flexRadioDefault2" value="female" <?php if(strpos($cv->Gender, 'female')!== false){ echo("checked"); } ?>>
                                                 <label class="form-check-label" for="flexRadioDefault2">خانوم</label>
                                             </div>
                                             
@@ -372,7 +381,7 @@ if (isset($_POST['cv'])) {
                                                 <label class="form-label">شماره تماس</label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="phone" class="fea icon-sm icons"></i>
-                                                    <input name="phone" id="phone" type="tel" class="form-control ps-5" placeholder="شماره تماس">
+                                                    <input name="phone" id="phone" type="tel" class="form-control ps-5" placeholder="شماره تماس" value="<?php echo($cv->Phone);?>">
                                                 </div>
                                         </div>
                                         
@@ -385,7 +394,7 @@ if (isset($_POST['cv'])) {
                                             <div class="form-icon position-relative">
 
                                                  <i data-feather="code" class="fea icon-sm icons"></i>
-                                                 <textarea name="specialties" id="job" class="form-control ps-5" placeholder="برای جدا کردن از <|> استفاده کنید"></textarea>
+                                                 <textarea name="specialties" id="job" class="form-control ps-5" placeholder="برای جدا کردن از <|> استفاده کنید"><?php echo($cv->Specialties);?></textarea>
                                       
                                             </div>
                                     </div> 
