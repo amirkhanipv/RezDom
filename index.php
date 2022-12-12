@@ -6,7 +6,8 @@ if(isset($_SESSION['login']['status'])){
     $UserName = $_SESSION['login']['info']->UserName;
     $user = $DB->CheckAcc($UserName);
 }
-$users = $DB->GetCv();
+$_cvs = $DB->GetCv();
+
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +89,8 @@ $users = $DB->GetCv();
                 
                 <div class="row">
                     <?php 
-                    foreach($users as $user) { 
+                    foreach($_cvs as $cv) { 
+                        $_user = $DB->GetUser($cv->UserID);
                         ?>
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="candidate-list card rounded border-0 shadow">
@@ -100,24 +102,19 @@ $users = $DB->GetCv();
 
                                 <div class="content text-center">
                                     <img src="images/client/07.jpg" class="avatar avatar-md-md shadow-md rounded-circle" alt="">
-                                    <ul class="list-unstyled mb-1 mt-2">
-                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                        <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    </ul>
-                                    <a href="page-job-candidate.html" class="text-dark h5 name"><?php echo($user->FirstName." ".$user->LastName);?></a>
-                                    <p class="text-muted my-1">توسعه برنامه</p>
+                                    <p class="text-muted mb-1 mt-2"></p>
+                                    <a href="page-job-candidate.html" class="text-dark h5 name"><?php echo($_user->FirstName." ".$_user->LastName);?></a>
+                                    <p class="text-muted my-1"></p>
 
-                                    <span class="text-muted"><i class="uil uil-graduation-cap h4 mb-0 me-2 text-primary"></i>تجربه  <span class="text-success">3+ سال </span></span>
+                                    <span class="text-muted"><i class="uil uil-graduation-cap h4 mb-0 me-2 text-primary"></i>تجربه  : <span class="text-success"><?php echo($cv->YWR);?></span></span>
                                     
                                     <ul class="list-unstyled mt-3">
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">PHP</a></li>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">وردپرس </a></li>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">طراحی وب </a></li>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">CSS</a></li>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small">JS</a></li>
+                                        <?php $sps = explode("|", $cv->Specialties);
+                                        foreach($sps as $sp){
+                                        
+                                        ?>
+                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small"><?php echo($sp);?></a></li>
+                                       <?php  }?>
                                     </ul>
                                     <div class="d-grid">
                                         <a href="page-job-candidate.html" class="btn btn-soft-primary">مشاهده رزومه<i class="uil uil-angle-left-b align-middle"></i></a>

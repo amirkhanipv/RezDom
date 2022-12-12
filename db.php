@@ -292,12 +292,21 @@ class DB
 
     function GetCv(){
      
-        $query = "select * from users";
+        $query = "select * from users_cv";
         $result = $this->Connection->prepare($query);
         $result->execute();
         $data = $result->fetchAll(PDO::FETCH_OBJ);
         return $data;
         
+    }
+    function GetUser($UserID){
+        $query = "select * from Users where ID=:UserID";
+        $result = $this->Connection->prepare($query);
+        $result->bindValue(':UserID', $UserID);
+        $result->execute();
+        $user = $result->fetch(PDO::FETCH_OBJ);
+        return $user;
+    
     }
 
     function GetCVByID($UserID){
