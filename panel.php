@@ -18,6 +18,32 @@ $_FirstName = $user->FirstName;
 $_LastName = $user->LastName;
 $_mix=$_FirstName." ".$_LastName;
 $_email=$user->Email;
+$_UserId = $user->ID;
+
+if (isset($_POST['servedit'])) {
+    $S_TitleNew = trim($_POST['S_Title']);
+    $S_DesNew = trim($_POST['S_Des']);
+
+    $SrvNameNew = trim($_POST['SrvName']);
+    $SrvIcoNew = trim($_POST['SrvIco']);
+    $SrvDesNew = trim($_POST['SrvDes']);
+    $SelectService = trim($_POST['services']);
+
+    if (!empty($S_TitleNew) && !empty($S_DesNew)) {
+        $DB->UpdateAbout($S_TitleNew, $S_DesNew, $UserID);
+    }
+
+    if (
+        !empty($SrvNameNew) && !empty($SrvIcoNew) &&
+        !empty($SrvDesNew) && !empty($SelectService)
+    ) 
+    {
+        $DB->UpdateService($SelectService,$SrvNameNew,$SrvIcoNew,$SrvDesNew,$UserID);
+    }
+     header('Location:panel.php');
+
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -157,8 +183,8 @@ $_email=$user->Email;
                         <div class="tab-content ms-lg-4" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="dash-board" role="tabpanel" aria-labelledby="dashboard">
                                 
-                                <h5 class="text-md-start text-center">مشخصات شخصی</h5>
-                                <form>
+                                <h5 class="text-md-start text-center">مشخصات کاربری</h5>
+                                <form method="POST">
                                     <div class="row mt-4">
                                         <div class="col-md-6">
                                             <div class="mb-3">
@@ -192,14 +218,14 @@ $_email=$user->Email;
                                                 <label class="form-label">نام کاربری</label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="occupation" type="text" class="form-control ps-5" placeholder="نام کاربری :" value="<?php echo($_UserName)?>">
+                                                    <input name="name" disabled id="occupation" type="text" class="form-control ps-5" placeholder="نام کاربری :" value="<?php echo($_UserName)?>">
                                                 </div>
                                             </div> 
                                         </div><!--end col-->
                                     </div><!--end row-->
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <input type="submit" id="submit" name="send" class="btn btn-primary" value="ذخیره تغییرات">
+                                            <input type="submit" id="submit" name="account" class="btn btn-primary" value="ذخیره تغییرات">
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </form><!--end form-->
