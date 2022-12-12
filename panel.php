@@ -1,6 +1,9 @@
 <?php
+
 include_once __DIR__ . DIRECTORY_SEPARATOR . "DB.php";
 $DB = new DB();
+$error=null;
+$error_status='alert-danger';
 
 if (isset($_COOKIE['remembr'])) {
     $DB->Forcelogin($_COOKIE['remembr']);
@@ -20,27 +23,24 @@ $_mix=$_FirstName." ".$_LastName;
 $_email=$user->Email;
 $_UserId = $user->ID;
 
-if (isset($_POST['servedit'])) {
-    $S_TitleNew = trim($_POST['S_Title']);
-    $S_DesNew = trim($_POST['S_Des']);
+if (isset($_POST['account'])) {
 
-    $SrvNameNew = trim($_POST['SrvName']);
-    $SrvIcoNew = trim($_POST['SrvIco']);
-    $SrvDesNew = trim($_POST['SrvDes']);
-    $SelectService = trim($_POST['services']);
+    $_FirstNameNew = trim($_POST['FirstName']);
+    $_LastNameNew = trim($_POST['LastName']);
+    $_EmailNew = trim($_POST['Email']);
+    
+    if (!empty($_FirstNameNew) && !empty($_LastNameNew)) {
 
-    if (!empty($S_TitleNew) && !empty($S_DesNew)) {
-        $DB->UpdateAbout($S_TitleNew, $S_DesNew, $UserID);
+        $result = $DB->UpdateAccount($_FirstNameNew, $_LastNameNew,$_EmailNew, $_UserId);
+        header('Location:panel.php');
+    }
+    else{
+ 
+        $error_status='alert-danger';
+        $error="فیلد های الزامی نمی توانند خالی باشند!";
+   
     }
 
-    if (
-        !empty($SrvNameNew) && !empty($SrvIcoNew) &&
-        !empty($SrvDesNew) && !empty($SelectService)
-    ) 
-    {
-        $DB->UpdateService($SelectService,$SrvNameNew,$SrvIcoNew,$SrvDesNew,$UserID);
-    }
-     header('Location:panel.php');
 
 }
 
@@ -181,26 +181,33 @@ if (isset($_POST['servedit'])) {
 
                     <div class="col-md-7 col-12 mt-4 pt-2" style="width: 70%;">
                         <div class="tab-content ms-lg-4" id="pills-tabContent">
+
+                            <?php  if($error!=null): ?>
+                                <div class="alert <?php echo($error_status);?> alert-dismissible fade show mb-4" role="alert">
+                                    <?php echo($error); ?>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="بستن"></button>
+                                </div>
+                            <?php $error=null; endif ?>
+
                             <div class="tab-pane fade show active" id="dash-board" role="tabpanel" aria-labelledby="dashboard">
-                                
                                 <h5 class="text-md-start text-center">مشخصات کاربری</h5>
                                 <form method="POST">
                                     <div class="row mt-4">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">نام  </label>
+                                                <label class="form-label">نام  <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="first" type="text" class="form-control ps-5" placeholder="نام " value="<?php echo($_FirstName)?>">
+                                                    <input name="FirstName" id="first" type="text" class="form-control ps-5" placeholder="نام " value="<?php echo($_FirstName)?>">
                                                 </div>
                                             </div>
                                         </div><!--end col-->
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">نام خانوادگی </label>
+                                                <label class="form-label">نام خانوادگی <span class="text-danger">*</span></label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="user-check" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="last" type="text" class="form-control ps-5" placeholder="نام خانوادگی " value="<?php echo($_LastName)?>">
+                                                    <input name="LastName" id="last" type="text" class="form-control ps-5" placeholder="نام خانوادگی " value="<?php echo($_LastName)?>">
                                                 </div>
                                             </div>
                                         </div><!--end col-->
@@ -209,7 +216,7 @@ if (isset($_POST['servedit'])) {
                                                 <label class="form-label">ایمیل شما </label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="mail" class="fea icon-sm icons"></i>
-                                                    <input name="email" id="email" type="email" class="form-control ps-5" placeholder="ایمیل شما :" value="<?php echo($_email)?>">
+                                                    <input name="Email" id="email" type="email" class="form-control ps-5" placeholder="ایمیل شما " value="<?php echo($_email)?>">
                                                 </div>
                                             </div> 
                                         </div><!--end col-->
@@ -234,7 +241,7 @@ if (isset($_POST['servedit'])) {
                             
                             <div class="tab-pane fade" id="time-line" role="tabpanel" aria-labelledby="timeline">
               
-                            <div class="card-body">
+                                <div class="card-body">
                                 <h5 class="text-md-start text-center">رزومه  :</h5>
 
                                 <div class="mt-3 text-md-start text-center d-sm-flex">
@@ -388,7 +395,7 @@ if (isset($_POST['servedit'])) {
 
                                 
                               
-                            </div>
+                                </div>
                             
                             </div><!--end teb pane-->
                         </div><!--end tab content-->
@@ -398,7 +405,11 @@ if (isset($_POST['servedit'])) {
        
         </section>
 
-
+        <script>
+             if ( window.history.replaceState ) {
+                  window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
         <!-- javascript -->
         <script src="js/bootstrap.bundle.min.js"></script>
         <!-- Icons -->
