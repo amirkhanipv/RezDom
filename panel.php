@@ -44,7 +44,26 @@ if (isset($_POST['account'])) {
 
 }
 
+if (isset($_POST['cv'])) {
 
+    $_about = trim($_POST['about']);
+    $_age = trim($_POST['age']);
+    $_lang = trim($_POST['lang'][1]);
+    exit($_lang);
+    if (!empty($_FirstNameNew) && !empty($_LastNameNew)) {
+
+        $result = $DB->UpdateAccount($_FirstNameNew, $_LastNameNew,$_EmailNew, $_UserId);
+        header('Location:panel.php');
+    }
+    else{
+ 
+        $error_status='alert-danger';
+        $error="فیلد های الزامی نمی توانند خالی باشند!";
+   
+    }
+
+
+}
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -253,56 +272,29 @@ if (isset($_POST['account'])) {
                                     </div>
                                 </div>
 
-                                <form>
+                                <form method="POST">
                                     <div class="row mt-4">
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">نام <span class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="first" type="text" class="form-control ps-5" placeholder="نام :"  value="<?php echo$_FirstName?>">
-                                                </div>
+                      
+                                        <div class="mb-3">
+                                            <label class="form-label">درباره من<span class="text-danger">*</span></label>
+                                            <div class="form-icon position-relative">
+
+                                                 <i data-feather="info" class="fea icon-sm icons"></i>
+                                                 <textarea name="about" id="job" class="form-control ps-5" placeholder="توضیحات مربوط به خود"></textarea>
+                                      
                                             </div>
-                                        </div><!--end col-->
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">نام خانوادگی <span class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="user-check" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="last" type="text" class="form-control ps-5" placeholder="نام خانوادگی :"  value="<?php echo$_LastName?>">
-                                                </div>
-                                            </div>
-                                        </div><!--end col-->
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">ایمیل شما در رزومه<span class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="mail" class="fea icon-sm icons"></i>
-                                                    <input name="email" id="email" type="email" class="form-control ps-5" placeholder=" ایمیل شما در رزومه :"  value="<?php echo$_email?>">
-                                                </div>
-                                            </div> 
-                                        </div><!--end col-->
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">تخصص اصلی <span class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="code" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="job" type="text" class="form-control ps-5" placeholder="تخصص اصلی :">
-                                                </div>
-                                            </div> 
                                         </div>
-
-
+                                
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                             <label class="form-label">سن <span class="text-danger">*</span></label>
                                             <div class="form-icon position-relative">
-                                            <select class="form-select form-control" aria-label="Default select example">
+                                            <select name="age" class="form-select form-control" aria-label="Default select example">
                                                 <option value="0" disabled selected>سن : </option>
-                                                <option value="1">بین 13 تا 18 سال</option>
-                                                <option value="2">بین 18 تا 25 سال</option>
-                                                <option value="2">بین 25 تا 30 سال</option>
-                                                <option value="2">بالای 30 سال</option>
+                                                <option value="بین 13 تا 18 سال">بین 13 تا 18 سال</option>
+                                                <option value="بین 18 تا 25 سال">بین 18 تا 25 سال</option>
+                                                <option value="بین 25 تا 30 سال">بین 25 تا 30 سال</option>
+                                                <option value="بالای 30 سال">بالای 30 سال</option>
                                             </select>
                                             </div>
                                             </div> 
@@ -314,7 +306,7 @@ if (isset($_POST['account'])) {
                                             <div class="form-check form-check-inline">
                                             <div class="mb-0">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                                                    <input name="lang[]" class="form-check-input" type="checkbox" value="en" id="flexCheckDefault1">
                                                     <label class="form-check-label" for="flexCheckDefault1">انگلیسی </label>
                                                 </div>
                                             </div>
@@ -322,7 +314,7 @@ if (isset($_POST['account'])) {
                                         <div class="form-check form-check-inline">
                                             <div class="mb-0">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                                    <input name="lang[]" class="form-check-input" type="checkbox" value="fr" id="flexCheckDefault2">
                                                     <label class="form-check-label" for="flexCheckDefault2">فرانسوی </label>
                                                 </div>
                                             </div>
@@ -334,12 +326,12 @@ if (isset($_POST['account'])) {
                                             <div class="mb-3">
                                             <label class="form-label">سابقه کاری <span class="text-danger">*</span></label>
                                             <div class="form-icon position-relative">
-                                            <select class="form-select form-control" aria-label="Default select example">
+                                            <select name="ywr" class="form-select form-control" aria-label="Default select example">
                                                 <option disabled selected>سابقه کاری: </option>
-                                                <option value="0">کمتر از یک سال </option>
-                                                <option value="1">یک سال </option>
-                                                <option value="2">دو سال</option>
-                                                <option value="3">بیشتر از دو سال</option>
+                                                <option value="کمتر از یک سال ">کمتر از یک سال </option>
+                                                <option value="یک سال ">یک سال </option>
+                                                <option value="دو سال">دو سال</option>
+                                                <option value="بیشتر از دو سال">بیشتر از دو سال</option>
                                             </select>
                                             </div>
                                             </div> 
@@ -354,7 +346,7 @@ if (isset($_POST['account'])) {
                                             <div class="form-check form-check-inline" >
                                         
                                             <div class="form-check mb-0">
-                                                <input class="form-check-input" checked  type="radio"   name="flexRadioDefault1" id="flexRadioDefault1">
+                                                <input name="gender" class="form-check-input" checked  type="radio"  id="flexRadioDefault1" value="male">
                                                 <label class="form-check-label" for="flexRadioDefault1">آقا</label>
                                             </div>
                                            
@@ -363,7 +355,7 @@ if (isset($_POST['account'])) {
                                         <div class="form-check form-check-inline">
                                            
                                             <div class="form-check mb-0">
-                                                <input class="form-check-input"   type="radio"  name="flexRadioDefault1" id="flexRadioDefault2">
+                                                <input name="gender" class="form-check-input"  type="radio"  id="flexRadioDefault2" value="female" >
                                                 <label class="form-check-label" for="flexRadioDefault2">خانوم</label>
                                             </div>
                                             
@@ -382,13 +374,28 @@ if (isset($_POST['account'])) {
                                                     <i data-feather="phone" class="fea icon-sm icons"></i>
                                                     <input name="phone" id="phone" type="tel" class="form-control ps-5" placeholder="شماره تماس">
                                                 </div>
-                                            </div> 
+                                        </div>
+                                        
+                                
                                      
                                
                                     </div><!--end row-->
+                                    <div class="mb-3">
+                                            <label class="form-label">تخصص ها <span class="text-danger">*</span></label>
+                                            <div class="form-icon position-relative">
+
+                                                 <i data-feather="code" class="fea icon-sm icons"></i>
+                                                 <textarea name="specialties" id="job" class="form-control ps-5" placeholder="برای جدا کردن از <|> استفاده کنید"></textarea>
+                                      
+                                            </div>
+                                    </div> 
+
+                               
+
+
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <input type="submit" id="submit" name="send" class="btn btn-primary" value="ثبت رزومه">
+                                            <input type="submit" id="submit" name="cv" class="btn btn-primary" value="ثبت رزومه">
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </form><!--end form-->

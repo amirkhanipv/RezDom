@@ -309,4 +309,18 @@ class DB
         }
         return true;
     }
+
+    function UpdateCV($_FirstNameNew, $_LastNameNew,$_EmailNew, $UserID){
+        $query = "update cv set FirstName=?,LastName=?,Email=? where ID=? ";
+        $result = $this->Connection->prepare($query);
+        $result->bindValue(1, $_FirstNameNew);
+        $result->bindValue(2, $_LastNameNew);
+        $result->bindValue(3, $_EmailNew);
+        $result->bindValue(4, $UserID);
+        $result->execute();
+        if ($result->rowCount() == 0) {
+            return false;
+        }
+        return true;
+    }
 }
