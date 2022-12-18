@@ -316,7 +316,11 @@ class DB
         $result->bindValue(':UserID', $UserID);
         $result->execute();
         $user = $result->fetch(PDO::FETCH_OBJ);
-        return $user;
+        if ($user) {
+            return $user;
+        } else {
+            return false;
+        }
         
     }
     

@@ -117,7 +117,7 @@ $_cvs = $DB->GetCv();
                                        <?php  }?>
                                     </ul>
                                     <div class="d-grid">
-                                        <a href="page-job-candidate.html" class="btn btn-soft-primary">مشاهده رزومه<i class="uil uil-angle-left-b align-middle"></i></a>
+                                        <a href="./cv.php?user=<?php echo($_user->UserName);?>" class="btn btn-soft-primary">مشاهده رزومه<i class="uil uil-angle-left-b align-middle"></i></a>
                                     </div>
                                 </div>
                             </div>
