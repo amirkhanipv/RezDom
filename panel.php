@@ -327,8 +327,8 @@ $_cvs = $DB->GetCv();
                                                   <td>'.$__user->Email.'</td>
                                                   <td>'.$__Published.'</td>
                                                   <td>
-                                                  <a href="./panel?cvid='.$__cv->ID.'&action=update" name="confirm" class="btn btn-icon btn-primary"><i data-feather="tick" class="fea icon-sm"></i></a>
-                                                  <a href="./panel?cvid='.$__cv->ID.'&action=delete" name="delete" class="btn btn-icon btn-primary"><i data-feather="tick" class="fea icon-sm"></i></a>
+                                                  <a href="./panel?cvid='.$__cv->ID.'&action=update" name="confirm" class="btn btn-icon btn-primary"><i data-feather="user" class="fea icon-sm"></i></a>
+                                                  <a href="./panel?cvid='.$__cv->ID.'&action=delete" name="delete" class="btn btn-icon btn-primary"><i data-feather="user" class="fea icon-sm"></i></a>
                                                   </td>
                                                 </tr>
                                                 ');
