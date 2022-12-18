@@ -74,7 +74,7 @@ if (isset($_POST['cv'])) {
    
     $_about = trim($_POST['about']);
     $_age = trim($_POST['age']);
-    $_lang = trim($_POST['lang'][0]);
+    $_lang = "en";
     $_ywr = trim($_POST['ywr']);
     $_phone = trim($_POST['phone']);
     $_specialties = trim($_POST['specialties']);
@@ -335,12 +335,12 @@ if (isset($_POST['cv'])) {
                                             <label class="form-label">زبان های خارجی</label>
                                             <div class="form-icon position-relative">
                                             <div class="form-check form-check-inline">
-                                            <div class="mb-0">
+                                             <div class="mb-0">
                                                 <div class="form-check">
                                                     <input name="lang[]" class="form-check-input" type="checkbox" value="en" id="flexCheckDefault1" <?php if(strpos($cvlng, 'en')!== false){ echo("checked"); } ?> >
                                                     <label class="form-check-label" for="flexCheckDefault1">انگلیسی </label>
                                                 </div>
-                                            </div>
+                                                </div>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <div class="mb-0">

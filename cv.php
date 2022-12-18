@@ -97,7 +97,15 @@ if (isset($_GET['user'])) {
                                     <div class="col-lg-10 col-md-9">
                                         <div class="row align-items-end">
                                             <div class="col-md-7 text-md-start text-center mt-4 mt-sm-0">
-                                                <h3 class="title mb-0"><?php echo($_user->FirstName . " " . $_user->LastName);  ?></h3>
+                                                <h3 class="title mb-0"><?php 
+                                                if($cv->Gender=="male"){
+                                                    echo("آقای ");  
+                                                }else if($cv->Gender=="female"){
+                                                    echo("خانم ");  
+                                                }
+                                                echo($_user->FirstName . " " . $_user->LastName);  
+                                                ?>
+                                                </h3>
                                               <div style="padding-top:10px;">
                                                 <?php $sps = explode("|", $cv->Specialties);
                                                 foreach($sps as $sp){
@@ -164,27 +172,20 @@ if (isset($_GET['user'])) {
                                                 <a href="javascript:void(0)" class="text-muted"><?php echo($cv->Phone);  ?></a>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center mt-3">
-                                            <i data-feather="gift" class="fea icon-ex-md text-muted me-3"></i>
-                                            <div class="flex-1">
-                                                <h6 class="text-primary mb-0">تاریخ تولد :</h6>
-                                                <p class="text-muted mb-0">تیر 1377</p>
-                                            </div>
-                                        </div>
+                                
                                         <div class="d-flex align-items-center mt-3">
                                             <i data-feather="map-pin" class="fea icon-ex-md text-muted me-3"></i>
                                             <div class="flex-1">
-                                                <h6 class="text-primary mb-0">موقعیت :</h6>
-                                                <a href="javascript:void(0)" class="text-muted">چین</a>
+                                                <h6 class="text-primary mb-0">تخصص ها :</h6>
+                                                <?php $sps = explode("|", $cv->Specialties);
+                                                foreach($sps as $sp){
+                                        
+                                                 ?>
+                                                <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small"><?php echo($sp);?></a></li>
+                                                <?php  }?>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center mt-3">
-                                            <i data-feather="phone" class="fea icon-ex-md text-muted me-3"></i>
-                                            <div class="flex-1">
-                                                <h6 class="text-primary mb-0">شماره تلفن :</h6>
-                                                <a href="javascript:void(0)" class="text-muted">(+12) 1254-56-4896</a>
-                                            </div>
-                                        </div>
+                               
                                     </div>
                                 </div><!--end col-->
                     
