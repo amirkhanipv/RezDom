@@ -98,7 +98,7 @@ $_cvs = $DB->GetpublishedCv();
                      
 
                                 <div class="content text-center">
-                                    <img src="images/client/07.jpg" class="avatar avatar-md-md shadow-md rounded-circle" alt="">
+                                    <img src="images/account/<?php echo($cv->Gender)?>.jpg" class="avatar avatar-md-md shadow-md rounded-circle" alt="">
                                     <p class="text-muted mb-1 mt-2"></p>
                                     <a href="page-job-candidate.html" class="text-dark h5 name"><?php echo($_user->FirstName." ".$_user->LastName);?></a>
                                     <p class="text-muted my-1"></p>
