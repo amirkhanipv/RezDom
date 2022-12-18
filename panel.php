@@ -340,16 +340,9 @@ if (isset($_POST['cv'])) {
                                                     <input name="lang[]" class="form-check-input" type="checkbox" value="en" id="flexCheckDefault1" <?php if(strpos($cvlng, 'en')!== false){ echo("checked"); } ?> >
                                                     <label class="form-check-label" for="flexCheckDefault1">انگلیسی </label>
                                                 </div>
-                                                </div>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <div class="mb-0">
-                                                <div class="form-check">
-                                                    <input name="lang[]" class="form-check-input" type="checkbox" value="fr" id="flexCheckDefault2" <?php if(strpos($cvlng, 'fr')!== false){ echo("checked"); } ?> >
-                                                    <label class="form-check-label" for="flexCheckDefault2">فرانسوی </label>
-                                                </div>
                                             </div>
                                         </div>
+                                    
                                             </div>
                                             </div> 
                                         </div>
