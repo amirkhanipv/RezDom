@@ -46,76 +46,7 @@ class DB
             }
         }
     }
-    function UpdateData($Title, $Phone, $Email, $Location,$UserID)
-    {
-        $query = "select count(*) from data where userid=?";
-        $result = $this->Connection->prepare($query);
-        $result->bindValue(1, $UserID);
-        $result->execute();
-        $count = $result->fetchColumn();
-        if ($count >= 1) 
-        {
-            $query = "update data set title=?,phone=?,email=?,location=? where userid=?";
-            $result = $this->Connection->prepare($query);
-            $result->bindValue(1, $Title);
-            $result->bindValue(2, $Phone);
-            $result->bindValue(3, $Email);
-            $result->bindValue(4, $Location);
-            $result->bindValue(5, $UserID);
-            $result->execute();
-            if ($result->rowCount() == 0) {
-                return false;
-            }
-            return true;
-        }
-        else{
-            $query = "insert into data values (null,?,?,?,?,?,'','')";
-            $result = $this->Connection->prepare($query);
-            $result->bindValue(1, $UserID);
-            $result->bindValue(2, $Title);
-            $result->bindValue(3, $Phone);
-            $result->bindValue(4, $Email);
-            $result->bindValue(5, $Location);
-            $finish = $result->execute();
-            if ($finish) {
-                return true;
-            }
-        }
 
-    }
-    function UpdateAbout($S_Title,$S_Des,$UserID)
-    {
-        $query = "select count(*) from data where userid=?";
-        $result = $this->Connection->prepare($query);
-        $result->bindValue(1, $UserID);
-        $result->execute();
-        $count = $result->fetchColumn();
-        if ($count >= 1) 
-        {
-            $query = "update data set s_title=?,s_des=? where userid=?";
-            $result = $this->Connection->prepare($query);
-            $result->bindValue(1, $S_Title);
-            $result->bindValue(2, $S_Des);
-            $result->bindValue(3, $UserID);
-            $result->execute();
-            if ($result->rowCount() == 0) {
-                return false;
-            }
-            return true;
-        }
-        else{
-            $query = "insert into data values (null,?,'','','','',?,?)";
-            $result = $this->Connection->prepare($query);
-            $result->bindValue(1, $UserID);
-            $result->bindValue(2, $S_Title);
-            $result->bindValue(3, $S_Des);
-            $finish = $result->execute();
-            if ($finish) {
-                return true;
-            }
-        }
-
-    }
     function UpdateUser($OldUserName, $UserName, $Password, $Name)
     {
         $query = "update users set UserName=?,Password=?,Name=? where UserName=? ";
@@ -131,58 +62,6 @@ class DB
         }
         return true;
     }
-
-    function UpdateService($select, $Title, $Icon, $Description,$UserID)
-    {
-        if($select=='none'){
-            $query = "insert into services values (null,?,?,?,?)";
-            $result = $this->Connection->prepare($query);
-            $result->bindValue(1, $UserID);
-            $result->bindValue(2, $Title);
-            $result->bindValue(3, $Icon);
-            $result->bindValue(4, $Description);
-            $finish = $result->execute();
-            if ($finish) {
-                return true;
-            }
-        }
-        else{
-            $query = "select count(*) from services where userid=? and id=?";
-            $result = $this->Connection->prepare($query);
-            $result->bindValue(1, $UserID);
-            $result->bindValue(2, $select);
-            $result->execute();
-            $count = $result->fetchColumn();
-            if ($count >= 1) {
-                $query = "update services set title=?,icon=?,description=? where id=? ";
-                $result = $this->Connection->prepare($query);
-                $result->bindValue(1, $Title);
-                $result->bindValue(2, $Icon);
-                $result->bindValue(3, $Description);
-                $result->bindValue(4, $select);
-                $result->execute();
-                if ($result->rowCount() == 0) {
-                    return false;
-                }
-                return true;
-            }
-
-        }
-
-    }
-
-    function DeleteService($select,$UserID){
-        $query = "delete from services where id=? and userid=?";
-        $result = $this->Connection->prepare($query);
-        $result->bindValue(1, $select);
-        $result->bindValue(2, $UserID);
-        $finish = $result->execute();
-        if ($finish) {
-            return true;
-        }
-    }
-
-
   
     function getRememberMEToken($UserName)
     {
@@ -230,22 +109,7 @@ class DB
             return $data;
         }
     }
-    function GetService($UserName)
-    {
-        $query = "select * from users where UserName=:UserName";
-        $result = $this->Connection->prepare($query);
-        $result->bindValue(':UserName', $UserName);
-        $result->execute();
-        $user = $result->fetch(PDO::FETCH_OBJ);
-        if ($user) {
-            $query = "select * from services where userid=?";
-            $result = $this->Connection->prepare($query);
-            $result->bindValue(1, $user->id);
-            $result->execute();
-            $data = $result->fetchAll(PDO::FETCH_OBJ);
-            return $data;
-        }
-    }
+
     function AddRequest($Name,$Email,$Description,$UserID){
         $query = "insert into requests values (null,?,?,?,?)";
         $result = $this->Connection->prepare($query);
@@ -258,6 +122,7 @@ class DB
             return true;
         }
     }
+
     function GetRequests($UserName){
         $query = "select * from users where UserName=:UserName";
         $result = $this->Connection->prepare($query);
@@ -274,7 +139,35 @@ class DB
         }
     }
 
+    function UpdateCVPublished($published,$cvid){
+        $query = "select count(*) from users_cv where ID=?";
+        $result = $this->Connection->prepare($query);
+        $result->bindValue(1, $cvid);
+        $result->execute();
+        $count = $result->fetchColumn();
+        if ($count >= 1) 
+        {
+            $query = "update users_cv set Published=? where ID=?";
+            $result = $this->Connection->prepare($query);
+            $result->bindValue(1, $published);
+            $result->bindValue(2, $cvid);
+            $result->execute();
+            if ($result->rowCount() == 0) {
+                return false;
+            }
+            return true;
+        }
+        else{return false;
+        }
+    }
 
+    function DeleteCV($cvid){
+        $query = "delete from users_cv where ID=?";
+        $result = $this->Connection->prepare($query);
+        $result->bindValue(1, $cvid);
+        $result->execute();
+        
+    }
     
     function CheckAcc($UserName)
     {
@@ -290,6 +183,16 @@ class DB
         }
     }
 
+    function GetpublishedCv(){
+     
+        $query = "select * from users_cv where Published=1";
+        $result = $this->Connection->prepare($query);
+        $result->execute();
+        $data = $result->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+        
+    }
+
     function GetCv(){
      
         $query = "select * from users_cv";
@@ -299,6 +202,7 @@ class DB
         return $data;
         
     }
+
     function GetUser($UserID){
         $query = "select * from Users where ID=:UserID";
         $result = $this->Connection->prepare($query);
@@ -363,7 +267,7 @@ class DB
             return true;
         }
         else{
-            $query = "insert into users_cv values (null,?,?,?,?,?,?,?,?)";
+            $query = "insert into users_cv values (null,?,?,?,?,?,?,?,?,?)";
             $result = $this->Connection->prepare($query);
             $result->bindValue(1, $_UserId);
             $result->bindValue(2, $_about);
@@ -373,6 +277,7 @@ class DB
             $result->bindValue(6, $_specialties);
             $result->bindValue(7, $_gender);
             $result->bindValue(8, $_lang);
+            $result->bindValue(9, "0");
             $finish = $result->execute();
             if ($finish) {
                 return true;

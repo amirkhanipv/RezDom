@@ -23,6 +23,8 @@ $_mix=$_FirstName." ".$_LastName;
 $_email=$user->Email;
 $_UserId = $user->ID;
 
+if($user->AdPer==0)
+{
 $cv = $DB->GetCVByID($_UserId);
 
 $cvlng="en";
@@ -43,10 +45,7 @@ if($cv!=false){
     $specialtie = $cv->Specialties;
 }
 
-
-
-
-
+}
 
 if (isset($_POST['account'])) {
 
@@ -93,8 +92,26 @@ if (isset($_POST['cv'])) {
    
     }
 
+}
+
+if (isset($_GET['cvid']) && isset($_GET['action'])) {
+
+    $cvId = trim($_GET['cvid']);
+    $action = trim($_GET['action']);
+
+    if(!empty($cvId)){
+        if($action=="update"){
+
+            $DB->UpdateCVPublished(1 , $cvId);
+
+        }elseif($action=="delete"){
+            $DB->DeleteCV($cvId);
+        }
+    }
 
 }
+
+$_cvs = $DB->GetCv();
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -173,7 +190,7 @@ if (isset($_POST['cv'])) {
                                 echo('
                                 
                                 <li class="nav-item bg-light rounded-md mt-3">
-                                 <a class="nav-link rounded-md " id="timeline" data-bs-toggle="pill" href="#time-line" role="tab" aria-controls="time-line" aria-selected="false">
+                                 <a class="nav-link rounded-md " id="timeline" data-bs-toggle="pill" href="#cv" role="tab" aria-controls="time-line" aria-selected="false">
                                     <div class="p-2 text-start flexselectionitem">
                                         <span class="h4 mb-0"><i class="mdi mdi-briefcase-account"> </i></span>
                                         <h6 class="mb-0 ms-2">رزومه </h6>
@@ -189,25 +206,13 @@ if (isset($_POST['cv'])) {
                             <?php
                             
                             if($user->AdPer == 1){
-                                echo('
-                                
-                                <li class="nav-item bg-light rounded-md mt-3">
-                                 <a class="nav-link rounded-md " id="dashboard" data-bs-toggle="pill" href="#dash-board" role="tab" aria-controls="dash-board" aria-selected="false">
-                                    <div class="p-2 text-start flexselectionitem">
-                                        <span class="h4 mb-0"><i class="mdi mdi-cog"> </i></span>
-                                        <h6 class="mb-0 ms-2">تنظیمات سایت </h6>
-                                    </div>
-                                  </a>
-                                 </li>
-
-                                
-                                ');
+                               
               
                                 echo('
                                 
                          
                                 <li class="nav-item bg-light rounded-md mt-3">
-                                  <a class="nav-link rounded-md " id="dashboard" data-bs-toggle="pill" href="#dash-board" role="tab" aria-controls="dash-board" aria-selected="false">
+                                  <a class="nav-link rounded-md " id="dashboard" data-bs-toggle="pill" href="#list" role="tab" aria-controls="list" aria-selected="false">
                                     <div class="p-2 text-start flexselectionitem">
                                         <span class="h4 mb-0"><i class="mdi mdi-clipboard-list"> </i></span>
                                         <h6 class="mb-0 ms-2">رزومه ها </h6>
@@ -288,8 +293,62 @@ if (isset($_POST['cv'])) {
                                 </form><!--end form-->
                             
                             </div><!--end teb pane-->
+
+                            <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list">
+                                <h5 class="text-md-start text-center">لیست رزومه ها</h5>
+                                <form method="POST">
+                                    <div class="row mt-4">
+
+                                         <table class="table mb-0 table-center invoice-tb">
+                                            <thead class="bg-light">
+                                                <tr style="color: white;">
+                                                    <th scope="col" class="border-bottom text-start">نام کاربری </th>
+                                                    <th scope="col" class="border-bottom text-start">نام و نام خانوادگی </th>
+                                                    <th scope="col" class="border-bottom">ایمیل </th>
+                                                    <th scope="col" class="border-bottom"> وضعیت </th>
+                                                    <th scope="col" class="border-bottom">عملیات ها </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="color: white;">
+                                            <?php 
+                                            foreach($_cvs as $__cv){
+                                                
+                                                $__user = $DB->GetUser($__cv->UserID);
+                                                $__Published = "منتشر نشده";
+                                                if($__cv->Published==1)
+                                                {
+                                                    $__Published = "منتشر شده";
+                                                }
+
+                                                echo('
+                                                <tr>
+                                                  <th scope="row" class="text-start">'.$__user->UserName.'</th>
+                                                  <td class="text-start">'.$__user->FirstName." ".$__user->LastName.'</td>
+                                                  <td>'.$__user->Email.'</td>
+                                                  <td>'.$__Published.'</td>
+                                                  <td>
+                                                  <a href="./panel?cvid='.$__cv->ID.'&action=update" name="confirm" class="btn btn-icon btn-primary"><i data-feather="tick" class="fea icon-sm"></i></a>
+                                                  <a href="./panel?cvid='.$__cv->ID.'&action=delete" name="delete" class="btn btn-icon btn-primary"><i data-feather="tick" class="fea icon-sm"></i></a>
+                                                  </td>
+                                                </tr>
+                                                ');
+                                                ?>
+
+                                            <?php
+                                            }?>
+                                               
+                               
+                                            </tbody>
+                                        </table>
+
+                                    </div><!--end row-->
+   
+                                </form><!--end form-->
                             
-                            <div class="tab-pane fade" id="time-line" role="tabpanel" aria-labelledby="timeline">
+                            </div><!--end teb pane-->
+
+                            
+                            <div class="tab-pane fade" id="cv" role="tabpanel" aria-labelledby="cv">
               
                                 <div class="card-body">
                                 <h5 class="text-md-start text-center">رزومه  :</h5>
@@ -423,12 +482,11 @@ if (isset($_POST['cv'])) {
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </form><!--end form-->
-
-                                
-                              
                                 </div>
                             
                             </div><!--end teb pane-->
+
+
                         </div><!--end tab content-->
                     </div><!--end col-->
                 </div><!--end row-->

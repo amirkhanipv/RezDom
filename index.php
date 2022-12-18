@@ -6,7 +6,7 @@ if(isset($_SESSION['login']['status'])){
     $UserName = $_SESSION['login']['info']->UserName;
     $user = $DB->CheckAcc($UserName);
 }
-$_cvs = $DB->GetCv();
+$_cvs = $DB->GetpublishedCv();
 
 ?>
 
@@ -95,10 +95,7 @@ $_cvs = $DB->GetCv();
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="candidate-list card rounded border-0 shadow">
                             <div class="card-body">
-                                <ul class="list-unstyled align-items-center">
-
-                                    <li class="list-inline-item"><span class="badge rounded-pill bg-soft-success">ویژه </span></li>
-                                </ul>
+                     
 
                                 <div class="content text-center">
                                     <img src="images/client/07.jpg" class="avatar avatar-md-md shadow-md rounded-circle" alt="">
