@@ -124,12 +124,11 @@ $_cvs = $DB->GetCv();
         <title>RezDom | داشبورد</title>
         <meta name="author" content="AmirKhani" />
         <!-- favicon -->
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="images/a_add.png">
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons -->
         <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="unicons.iconscout.com/release/v3.0.6/css/line.css">
         <!-- Main Css -->
         <link href="css/style-dark.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
         <link href="css/colors/purple.css" rel="stylesheet" id="color-opt">
@@ -139,7 +138,7 @@ $_cvs = $DB->GetCv();
     <body>
         
         <!-- Hero Start -->
-        <section class="bg-profile d-table w-100 bg-primary" style="background: url('images/account/bg.png') center center;">
+        <section class="bg-profile d-table w-100 bg-primary" style="background: url('images/bg.png') center center;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -330,8 +329,8 @@ $_cvs = $DB->GetCv();
                                                   <td>'.$__user->Email.'</td>
                                                   <td>'.$__Published.'</td>
                                                   <td>
-                                                  <a href="./panel?cvid='.$__cv->ID.'&action=update" name="confirm" class="btn btn-icon btn-primary"><i data-feather="user" class="fea icon-sm"></i></a>
-                                                  <a href="./panel?cvid='.$__cv->ID.'&action=delete" name="delete" class="btn btn-icon btn-primary"><i data-feather="user" class="fea icon-sm"></i></a>
+                                                  <a href="./panel?cvid='.$__cv->ID.'&action=update" name="confirm" class="btn btn-icon btn-primary"><i data-feather="thumbs-up" class="fea icon-sm"></i></a>
+                                                  <a href="./panel?cvid='.$__cv->ID.'&action=delete" name="delete" class="btn btn-icon btn-primary"><i data-feather="trash" class="fea icon-sm"></i></a>
                                                   </td>
                                                 </tr>
                                                 ');
@@ -356,27 +355,10 @@ $_cvs = $DB->GetCv();
                                 <div class="card-body">
                                 <h5 class="text-md-start text-center">رزومه  :</h5>
 
-                                <div class="mt-3 text-md-start text-center d-sm-flex">
-                                    <img src="images/client/05.jpg" class="avatar float-md-left avatar-medium rounded-circle shadow me-md-4" alt="">
-                                    
-                                    <div class="mt-md-4 mt-3 mt-sm-0" style="margin-right:5px;">
-                                        <a href="javascript:void(0)" class="btn btn-primary mt-2">تغییر تصویر</a>
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary mt-2 ms-2">حذف </a>
-                                    </div>
-                                </div>
-
                                 <form method="POST">
                                     <div class="row mt-4">
                       
-                                        <div class="mb-3">
-                                            <label class="form-label">درباره من<span class="text-danger">*</span></label>
-                                            <div class="form-icon position-relative">
-
-                                                 <i data-feather="info" class="fea icon-sm icons"></i>
-                                                 <textarea name="about" id="job" class="form-control ps-5" placeholder="توضیحات مربوط به خود"><?php echo($about);?></textarea>
-                                      
-                                            </div>
-                                        </div>
+                                        
                                 
                                         <div class="col-md-6">
                                             <div class="mb-3">
@@ -394,20 +376,14 @@ $_cvs = $DB->GetCv();
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                            <label class="form-label">زبان های خارجی</label>
-                                            <div class="form-icon position-relative">
-                                            <div class="form-check form-check-inline">
-                                             <div class="mb-0">
-                                                <div class="form-check">
-                                                    <input name="lang[]" class="form-check-input" type="checkbox" value="en" id="flexCheckDefault1" <?php if(strpos($cvlng, 'en')!== false){ echo("checked"); } ?> >
-                                                    <label class="form-check-label" for="flexCheckDefault1">انگلیسی </label>
+                                                <label class="form-label">شماره تماس</label>
+                                                <div class="form-icon position-relative">
+                                                    <i data-feather="phone" class="fea icon-sm icons"></i>
+                                                    <input name="phone" id="phone" type="tel" class="form-control ps-5" placeholder="شماره تماس" value="<?php echo($phone);?>">
                                                 </div>
-                                            </div>
                                         </div>
-                                    
-                                            </div>
-                                            </div> 
-                                        </div>
+                               
+                                    </div>
                                             <div class="col-md-6">
                                             <div class="mb-3">
                                             <label class="form-label">سابقه کاری <span class="text-danger">*</span></label>
@@ -453,19 +429,7 @@ $_cvs = $DB->GetCv();
                                             
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">شماره تماس</label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="phone" class="fea icon-sm icons"></i>
-                                                    <input name="phone" id="phone" type="tel" class="form-control ps-5" placeholder="شماره تماس" value="<?php echo($phone);?>">
-                                                </div>
-                                        </div>
-                                        
-                                
-                                     
-                               
-                                    </div><!--end row-->
+                                    
                                     <div class="mb-3">
                                             <label class="form-label">تخصص ها <span class="text-danger">*</span></label>
                                             <div class="form-icon position-relative">
@@ -475,9 +439,15 @@ $_cvs = $DB->GetCv();
                                       
                                             </div>
                                     </div> 
+                                    <div class="mb-3">
+                                            <label class="form-label">درباره من<span class="text-danger">*</span></label>
+                                            <div class="form-icon position-relative">
 
-                               
-
+                                                 <i data-feather="info" class="fea icon-sm icons"></i>
+                                                 <textarea name="about" id="job" class="form-control ps-5" placeholder="توضیحات مربوط به خود"><?php echo($about);?></textarea>
+                                      
+                                            </div>
+                                        </div>
 
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -502,15 +472,10 @@ $_cvs = $DB->GetCv();
                   window.history.replaceState( null, null, window.location.href );
             }
         </script>
-        <!-- javascript -->
+
         <script src="js/bootstrap.bundle.min.js"></script>
-        <!-- Icons -->
         <script src="js/feather.min.js"></script>
-        <!-- Switcher -->
-        <script src="js/switcher.js"></script>
-        <!-- Main Js -->
-        <script src="js/plugins.init.js"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
-        <script src="js/app.js"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
-    </body>
+        <script src="js/app.js"></script>
+        </body>
 
 </html>

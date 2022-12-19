@@ -66,7 +66,6 @@ if(isset($_POST['submit'])){
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons -->
         <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="unicons.iconscout.com/release/v3.0.6/css/line.css">
         <!-- Main Css -->
         <link href="css/style-dark.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
         <link href="css/colors/purple.css" rel="stylesheet" id="color-opt">
@@ -76,7 +75,7 @@ if(isset($_POST['submit'])){
 
 
         <div class="back-to-home rounded d-none d-sm-block">
-            <a href="./" class="btn btn-icon btn-primary"><i data-feather="home" class="icons"></i></a>
+        <a href="./" class="btn btn-secondary"><i class="mdi mdi-home"></i></a>
         </div>
         
         <!-- Show ON -->
@@ -137,18 +136,8 @@ if(isset($_POST['submit'])){
                 </div><!--end row-->
             </div> <!--end container-->
         </section><!--end section-->
-        <!-- End On -->
-
-
-        <!-- javascript -->
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <!-- Icons -->
         <script src="js/feather.min.js"></script>
-        <!-- Switcher -->
-        <script src="js/switcher.js"></script>
-        <!-- Main Js -->
-        <script src="js/plugins.init.js"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
-        <script src="js/app.js"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
-    </body>
+        <script src="js/app.js"></script>
+ </body>
 
 </html>

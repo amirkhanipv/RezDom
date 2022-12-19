@@ -13,15 +13,13 @@ $_cvs = $DB->GetpublishedCv();
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />   <title>RezDom | از رزومه تا استخدام</title>
+        <meta charset="utf-8" />   
+        <title>RezDom | از رزومه تا استخدام</title>
         <meta name="author" content="AmirKhani" />
         <link rel="shortcut icon" href="images/a_add.png">
-   
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
      
         <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="unicons.iconscout.com/release/v3.0.6/css/line.css">
-   
         <link href="css/style-dark.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
         <link href="css/colors/purple.css" rel="stylesheet" id="color-opt">
 
@@ -103,18 +101,18 @@ $_cvs = $DB->GetpublishedCv();
                                     <a href="page-job-candidate.html" class="text-dark h5 name"><?php echo($_user->FirstName." ".$_user->LastName);?></a>
                                     <p class="text-muted my-1"></p>
 
-                                    <span class="text-muted"><i class="uil uil-graduation-cap h4 mb-0 me-2 text-primary"></i>تجربه  : <span class="text-success"><?php echo($cv->YWR);?></span></span>
+                                    <span class="text-muted">تجربه  : <span class="text-success"><?php echo($cv->YWR);?></span></span>
                                     
                                     <ul class="list-unstyled mt-3">
                                         <?php $sps = explode("|", $cv->Specialties);
                                         foreach($sps as $sp){
                                         
                                         ?>
-                                        <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small"><?php echo($sp);?></a></li>
+                                        <li class="list-inline-item m-1"><a class="rounded bg-light py-1 px-2 text-muted small"><?php echo($sp);?></a></li>
                                        <?php  }?>
                                     </ul>
                                     <div class="d-grid">
-                                        <a href="./cv.php?user=<?php echo($_user->UserName);?>" class="btn btn-soft-primary">مشاهده رزومه<i class="uil uil-angle-left-b align-middle"></i></a>
+                                        <a href="./cv.php?user=<?php echo($_user->UserName);?>" class="btn btn-soft-primary">مشاهده رزومه</a>
                                     </div>
                                 </div>
                             </div>
@@ -149,19 +147,7 @@ $_cvs = $DB->GetpublishedCv();
                 </div><!--end row-->
             </div><!--end container-->
         </footer><!--end footer-->
-        <!-- Footer End -->
-
-        <!-- javascript -->
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <!-- SLIDER -->
-        <script src="js/tiny-slider.js"></script>
-        <!-- Icons -->
-        <script src="js/feather.min.js"></script>
-        <!-- Switcher -->
-        <script src="js/switcher.js"></script>
-        <!-- Main Js -->
-        <script src="js/plugins.init.js"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
-        <script src="js/app.js"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
-    </body>
+        <script src="js/app.js"></script>
+       </body>
 
 </html>

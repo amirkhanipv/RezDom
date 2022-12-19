@@ -50,12 +50,12 @@ if (isset($_GET['user'])) {
         <title>RezDom </title>
         <meta name="author" content="AmirKhani" />
         <!-- favicon -->
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="images/a_add.png">
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons -->
         <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="unicons.iconscout.com/release/v3.0.6/css/line.css">
+        
         <!-- Main Css -->
         <link href="css/style-dark.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
         <link href="css/colors/purple.css" rel="stylesheet" id="color-opt">
@@ -83,7 +83,7 @@ if (isset($_GET['user'])) {
         </header><!--end header-->
         
         <!-- Hero Start -->
-        <section class="bg-profile d-table w-100 bg-primary" style="background: url('images/account/bg.png') center center;">
+        <section class="bg-profile d-table w-100 bg-primary" style="background: url('images/bg.png') center center;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -111,7 +111,7 @@ if (isset($_GET['user'])) {
                                                 foreach($sps as $sp){
                                         
                                                  ?>
-                                                <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small"><?php echo($sp);?></a></li>
+                                                <li class="list-inline-item m-1"><a class="rounded bg-light py-1 px-2 text-muted small"><?php echo($sp);?></a></li>
                                                 <?php  }?>
                                              </div>
                                             </div><!--end col-->
@@ -132,7 +132,7 @@ if (isset($_GET['user'])) {
             <div class="container mt-lg-3">
                 <div class="row">
     
-                    <div class="col-12" style="">
+                    <div class="col-12" >
                         <div class="border-bottom pb-4">
                             <h5>درباره من</h5>
                             <p class="text-muted mb-0"><?php echo($cv->About);  ?></p>
@@ -140,51 +140,63 @@ if (isset($_GET['user'])) {
                         
                         <div class="border-bottom pb-4">
                             <div class="row">
-
-                                <div class="col-md-6 mt-4">
+                            <div class="col-md-6 mt-4">
                                     <h5>جزئیات شخصی :</h5>
+                                    
                                     <div class="mt-4">
                                         <div class="d-flex align-items-center">
                                             <i data-feather="mail" class="fea icon-ex-md text-muted me-3"></i>
                                             <div class="flex-1">
                                                 <h6 class="text-primary mb-0">ایمیل :</h6>
-                                                <a href="javascript:void(0)" class="text-muted"><?php echo($_user->Email);  ?></a>
+                                                <a  class="text-muted"><?php echo($_user->Email);  ?></a>
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center mt-3">
                                             <i data-feather="user" class="fea icon-ex-md text-muted me-3"></i>
                                             <div class="flex-1">
                                                 <h6 class="text-primary mb-0">سن :</h6>
-                                                <a href="javascript:void(0)" class="text-muted"><?php echo($cv->Age);  ?></a>
+                                                <a class="text-muted"><?php echo($cv->Age);  ?></a>
                                             </div>
                                         </div>
+                                     
                                         <div class="d-flex align-items-center mt-3">
-                                            <i data-feather="italic" class="fea icon-ex-md text-muted me-3"></i>
-                                            <div class="flex-1">
-                                                <h6 class="text-primary mb-0">سابقه کاری :</h6>
-                                                <a href="javascript:void(0)" class="text-muted"><?php echo($cv->YWR);  ?></a>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center mt-3">
-                                            <i data-feather="globe" class="fea icon-ex-md text-muted me-3"></i>
+                                            <i data-feather="phone" class="fea icon-ex-md text-muted me-3"></i>
                                             <div class="flex-1">
                                                 <h6 class="text-primary mb-0">شماره تماس :</h6>
-                                                <a href="javascript:void(0)" class="text-muted"><?php echo($cv->Phone);  ?></a>
+                                                <a class="text-muted"><?php echo($cv->Phone);  ?></a>
                                             </div>
                                         </div>
                                 
+                                       
+                               
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col-md-6 mt-4">
+                                    <h5>تخصص :</h5>
+                                    
+                                    <div class="mt-4">
+                                       
                                         <div class="d-flex align-items-center mt-3">
-                                            <i data-feather="map-pin" class="fea icon-ex-md text-muted me-3"></i>
+                                            <i data-feather="code" class="fea icon-ex-md text-muted me-3"></i>
                                             <div class="flex-1">
                                                 <h6 class="text-primary mb-0">تخصص ها :</h6>
                                                 <?php $sps = explode("|", $cv->Specialties);
                                                 foreach($sps as $sp){
                                         
                                                  ?>
-                                                <li class="list-inline-item m-1"><a href="jvascript:void(0)" class="rounded bg-light py-1 px-2 text-muted small"><?php echo($sp);?></a></li>
+                                                <li class="list-inline-item m-1"><a class="rounded bg-light py-1 px-2 text-muted small"><?php echo($sp);?></a></li>
                                                 <?php  }?>
                                             </div>
                                         </div>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <i data-feather="briefcase" class="fea icon-ex-md text-muted me-3"></i>
+                                            <div class="flex-1">
+                                                <h6 class="text-primary mb-0">سابقه کاری :</h6>
+                                                <a class="text-muted"><?php echo($cv->YWR);  ?></a>
+                                            </div>
+                                        </div>
+                                        
+                                
                                
                                     </div>
                                 </div><!--end col-->
@@ -219,20 +231,8 @@ if (isset($_GET['user'])) {
                 </div><!--end row-->
             </div><!--end container-->
         </footer><!--end footer-->
-
-
-
-
-
-        <!-- javascript -->
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <!-- Icons -->
         <script src="js/feather.min.js"></script>
-        <!-- Switcher -->
-        <script src="js/switcher.js"></script>
-        <!-- Main Js -->
-        <script src="js/plugins.init.js"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
-        <script src="js/app.js"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
-    </body>
+        <script src="js/app.js"></script>
+        </body>
 
 </html>
